@@ -58,6 +58,9 @@ export default function HomePage() {
     <main className="min-h-screen bg-brand-paper">
       <div className="page-shell">
       <section className="page-section flex flex-col gap-8 backdrop-blur">
+        <div className="overflow-hidden rounded-[2rem] border border-brand-mist/80 bg-brand-paper/70">
+          <img src="/hero-abstract.svg" alt="Illustration de calme et de soutien" className="h-44 w-full object-cover sm:h-56" />
+        </div>
         <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="info-banner w-fit">Sécurité, confidentialité et accompagnement clinique</p>
           <span className="rounded-full border border-brand-mist bg-brand-paper px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">
