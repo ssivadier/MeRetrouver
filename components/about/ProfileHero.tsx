@@ -5,15 +5,15 @@ type ProfileHeroProps = {
 };
 
 export function ProfileHero({
-  name = 'Votre prénom et nom',
-  role = 'Praticien.ne en hypnothérapie et accompagnement du stress',
-  imageAlt = 'Portrait du praticien',
+  name = 'Sébastien Sivadier',
+  role = 'Praticien en hypnothérapie et accompagnement du stress',
+  imageAlt = 'Portrait de Sébastien Sivadier',
 }: ProfileHeroProps) {
   return (
     <section className="grid gap-8 rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:p-10">
       <div className="flex justify-center lg:justify-start">
         <div className="flex h-56 w-56 items-center justify-center overflow-hidden rounded-full border-4 border-brand-emerald/20 bg-brand-paper shadow-soft sm:h-64 sm:w-64">
-          <img src="/portrait-placeholder.svg" alt={imageAlt} className="h-full w-full object-cover" />
+          <img src="/photo_profil.png" alt={imageAlt} className="h-full w-full object-cover" />
         </div>
       </div>
       <div className="space-y-4">
