@@ -17,6 +17,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Navigation responsive avec menu hamburger sur mobile
 - Footer comprenant mentions légales, liens rapides et rappel de sécurité sur l’absence de remplacement d’un avis médical
 
+## Page d’accueil
+
+- Hero principal centré sur la proposition de valeur autour du stress, du burnout, des phobies et des approches d’hypnose et de cohérence cardiaque
+- Boutons d’action directs vers la prise de rendez-vous et l’exploration de la méthode
+- Trois cartes courtes pour présenter les accompagnements, les méthodes et les preuves scientifiques, chacune avec un lien vers la page dédiée
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
