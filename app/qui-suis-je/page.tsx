@@ -15,6 +15,19 @@ export default function AboutPage() {
             bulletPoints={['Formation suivie', 'Années de pratique', 'Approche personnelle']}
           />
         </div>
+        <section className="rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft">
+          <h2 className="font-display text-2xl font-semibold text-brand-deep">Contact</h2>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-4 text-sm leading-7 text-brand-ink/80">
+              <p className="font-semibold text-brand-deep">Téléphone</p>
+              <p className="mt-1">+33 6 12 34 56 78</p>
+            </div>
+            <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-4 text-sm leading-7 text-brand-ink/80">
+              <p className="font-semibold text-brand-deep">E-mail</p>
+              <p className="mt-1">contact@meretrouver.fr</p>
+            </div>
+          </div>
+        </section>
         <WhyThisPath />
       </div>
     </main>
