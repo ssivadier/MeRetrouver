@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-brand-paper px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6">
+    <main className="min-h-screen bg-brand-paper">
+      <div className="page-shell">
         <ProfileHero />
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
           <ProfileStory />
@@ -30,7 +30,7 @@ export default function AboutPage() {
             bulletPoints={['Formation suivie', 'Années de pratique', 'Approche personnelle']}
           />
         </div>
-        <section className="rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft">
+        <section className="page-section">
           <h2 className="font-display text-2xl font-semibold text-brand-deep">Contact</h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-4 text-sm leading-7 text-brand-ink/80">

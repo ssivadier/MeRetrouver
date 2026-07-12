@@ -9,7 +9,6 @@ const navLinks = [
   { href: '/qui-suis-je', label: 'Qui suis-je' },
   { href: '/accompagnements', label: 'Mes accompagnements' },
   { href: '/methodes', label: 'Mes méthodes' },
-  { href: '/preuves-scientifiques', label: 'Preuves scientifiques' },
   { href: '/temoignages', label: 'Témoignages' },
   { href: '/tarifs', label: 'Tarifs' },
 ];
@@ -85,7 +84,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">Liens rapides</p>
               <ul className="space-y-2">
                 <li><Link href="/contact" className="transition hover:text-brand-gold">Contact</Link></li>
-                <li><Link href="/blog" className="transition hover:text-brand-gold">Blog</Link></li>
+                <li><Link href="/temoignages" className="transition hover:text-brand-gold">Témoignages</Link></li>
                 <li><Link href="/tarifs" className="transition hover:text-brand-gold">Tarifs</Link></li>
               </ul>
             </div>

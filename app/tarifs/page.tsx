@@ -44,9 +44,9 @@ const sections = [
 
 export default function TarifsPage() {
   return (
-    <main className="min-h-screen bg-brand-paper px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6">
-        <section className="rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft">
+    <main className="min-h-screen bg-brand-paper">
+      <div className="page-shell">
+        <section className="page-section">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Tarifs</p>
           <h1 className="mt-3 font-display text-3xl font-semibold text-brand-deep sm:text-4xl">
             Une offre simple, claire et adaptée à votre rythme
