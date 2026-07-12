@@ -29,6 +29,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Section de parcours avec formation suivie, années de pratique et approche personnelle
 - Section “Pourquoi j’ai choisi cette voie” pour humaniser le propos et renforcer la confiance
 
+## Page “Mes accompagnements”
+
+- Trois sous-sections dédiées : Stress & burnout, Phobies, Troubles liés au stress post-traumatique
+- Pour chaque rubrique : texte de présentation, signes ou situations concernées, et ce à quoi peut ressembler l’accompagnement
+- Rappel discret en bas de chaque section : “Cet accompagnement ne se substitue pas à un suivi médical ou psychologique si nécessaire.”
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
