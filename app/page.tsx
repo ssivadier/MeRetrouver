@@ -1,3 +1,5 @@
+import { BookingButton } from '@/components/ui/BookingButton';
+
 const highlights = [
   {
     title: 'Mes accompagnements',
@@ -38,9 +40,7 @@ export default function HomePage() {
               À travers l’hypnose et la cohérence cardiaque, je vous accompagne vers un mieux-être plus stable, avec une écoute attentive et un cadre sécurisé.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://system.io" className="btn-cta-primary">
-                Prendre RDV
-              </a>
+              <BookingButton />
               <a href="/methodes" className="rounded-full border border-brand-mist bg-white px-6 py-3 text-sm font-semibold text-brand-deep transition hover:border-brand-emerald hover:text-brand-emerald">
                 Découvrir mon approche
               </a>

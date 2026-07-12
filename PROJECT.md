@@ -52,6 +52,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Tarif unique de 70 € la séance d’1 heure, avec mention des remboursements possibles via certaines mutuelles
 - Présentation des possibilités de séance à domicile ou en visio, ainsi qu’un bouton de prise de rendez-vous en fin de page
 
+## Prise de rendez-vous
+
+- Tous les boutons “Prendre RDV” redirigent vers une URL externe system.io via la variable d’environnement NEXT_PUBLIC_BOOKING_URL
+- Si cette variable n’est pas définie, le bouton bascule vers un lien mailto temporaire pour éviter une rupture de parcours
+- Les liens s’ouvrent dans un nouvel onglet lorsqu’une URL externe est fournie
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
