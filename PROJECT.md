@@ -23,6 +23,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Boutons d’action directs vers la prise de rendez-vous et l’exploration de la méthode
 - Trois cartes courtes pour présenter les accompagnements, les méthodes et les preuves scientifiques, chacune avec un lien vers la page dédiée
 
+## Page “Qui suis-je”
+
+- Présentation personnelle avec photo de profil, bio modulaire et zones de texte à remplacer par le contenu réel
+- Section de parcours avec formation suivie, années de pratique et approche personnelle
+- Section “Pourquoi j’ai choisi cette voie” pour humaniser le propos et renforcer la confiance
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
