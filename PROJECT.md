@@ -41,6 +41,11 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Pour chaque rubrique : texte de présentation, signes ou situations concernées, et ce à quoi peut ressembler l’accompagnement
 - Rappel discret en bas de chaque section : “Cet accompagnement ne se substitue pas à un suivi médical ou psychologique si nécessaire.”
 
+## Page “Témoignages”
+
+- Grille de cartes réutilisables avec nom ou initiales, photo optionnelle, texte du témoignage et note si pertinente
+- Données d’exemple temporaires à remplacer par de vrais témoignages avec consentement écrit
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
