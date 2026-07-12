@@ -12,8 +12,8 @@ export function ProfileHero({
   return (
     <section className="grid gap-8 rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:p-10">
       <div className="flex justify-center lg:justify-start">
-        <div className="flex h-56 w-56 items-center justify-center overflow-hidden rounded-full border-4 border-brand-emerald/20 bg-brand-paper text-center text-sm font-medium text-brand-deep shadow-soft sm:h-64 sm:w-64">
-          <span className="max-w-[10rem] px-4">Photo de profil à intégrer</span>
+        <div className="flex h-56 w-56 items-center justify-center overflow-hidden rounded-full border-4 border-brand-emerald/20 bg-brand-paper shadow-soft sm:h-64 sm:w-64">
+          <img src="/portrait-placeholder.svg" alt={imageAlt} className="h-full w-full object-cover" />
         </div>
       </div>
       <div className="space-y-4">

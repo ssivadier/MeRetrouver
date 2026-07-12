@@ -21,8 +21,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 border-b border-brand-mist/80 bg-brand-paper/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-emerald text-sm font-semibold text-white shadow-soft">
-              MR
+            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-brand-mist bg-white shadow-soft">
+              <img src="/logo-meretrouver.svg" alt="Logo Me Retrouver" className="h-11 w-11 object-cover" />
             </div>
             <div>
               <p className="font-display text-xl font-semibold text-brand-deep">Me Retrouver</p>
