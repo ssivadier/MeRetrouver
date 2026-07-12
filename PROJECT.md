@@ -46,6 +46,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Grille de cartes réutilisables avec nom ou initiales, photo optionnelle, texte du témoignage et note si pertinente
 - Données d’exemple temporaires à remplacer par de vrais témoignages avec consentement écrit
 
+## Page “Tarifs”
+
+- Présentation du déroulé type d’une séance, avec durée et premier rendez-vous
+- Tarif unique de 70 € la séance d’1 heure, avec mention des remboursements possibles via certaines mutuelles
+- Présentation des possibilités de séance à domicile ou en visio, ainsi qu’un bouton de prise de rendez-vous en fin de page
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
