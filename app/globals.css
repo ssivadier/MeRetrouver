@@ -4,8 +4,18 @@
 
 :root {
   color-scheme: light;
+  --bg-page: #f4f7f2;
 }
 
 body {
-  @apply bg-white text-slate-800 antialiased;
+  background-color: var(--bg-page);
+  color: #0f2b3d;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #1f6e5c;
+  color: white;
 }

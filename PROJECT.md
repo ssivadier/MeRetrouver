@@ -2,7 +2,14 @@
 
 ## Objectif
 
-Créer un site vitrine professionnel pour une activité d’hypnothérapie et de gestion du stress.
+Créer un site vitrine professionnel pour une activité d’hypnothérapie et de gestion du stress, avec une identité visuelle sobre, rassurante et crédible.
+
+## Direction de design
+
+- Palette professionnelle orientée bleu pétrole, vert émeraude, or et bordeaux
+- Fond principal blanc cassé / bleu très clair désaturé, sans mode sombre
+- Typographie avec une police display chaleureuse pour les titres et une police body lisible pour le contenu
+- Composants récurrents : bouton CTA principal, carte de témoignage ou de référence, bandeau d’information discret
 
 ## Fonctionnalités attendues
 
