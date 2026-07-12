@@ -29,6 +29,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Section de parcours avec formation suivie, années de pratique et approche personnelle
 - Section “Pourquoi j’ai choisi cette voie” pour humaniser le propos et renforcer la confiance
 
+## Page “Mes méthodes”
+
+- Trois sections dédiées : hypnose, cohérence cardiaque et rythmes binauraux
+- L’hypnose et la cohérence cardiaque sont présentées comme des méthodes avec un niveau de preuve scientifique solide
+- Les rythmes binauraux sont présentés comme un complément de confort sensoriel, avec un niveau de preuve scientifique nettement plus faible
+
 ## Page “Mes accompagnements”
 
 - Trois sous-sections dédiées : Stress & burnout, Phobies, Troubles liés au stress post-traumatique
