@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
+import { SiteLayout } from '@/components/site-layout';
 
 const displayFont = Cormorant_Garamond({
   subsets: ['latin'],
@@ -24,7 +25,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="min-h-screen bg-brand-paper font-body text-brand-ink">{children}</body>
+      <body className="min-h-screen bg-brand-paper font-body text-brand-ink">
+        <SiteLayout>{children}</SiteLayout>
+      </body>
     </html>
   );
 }

@@ -11,6 +11,12 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Typographie avec une police display chaleureuse pour les titres et une police body lisible pour le contenu
 - Composants récurrents : bouton CTA principal, carte de témoignage ou de référence, bandeau d’information discret
 
+## Layout global
+
+- Header sticky avec logo, navigation principale et bouton de prise de rendez-vous bien visible
+- Navigation responsive avec menu hamburger sur mobile
+- Footer comprenant mentions légales, liens rapides et rappel de sécurité sur l’absence de remplacement d’un avis médical
+
 ## Fonctionnalités attendues
 
 - Présentation claire de la pratique et des services proposés
