@@ -29,11 +29,6 @@ const highlights = [
     description: 'Hypnose et cohérence cardiaque pour retrouver un rythme plus apaisé.',
     href: '/methodes',
   },
-  {
-    title: 'Preuves scientifiques',
-    description: 'Des approches claires, crédibles et adaptées à un cadre professionnel.',
-    href: '/preuves-scientifiques',
-  },
 ];
 
 const homeSchema = {
@@ -60,8 +55,9 @@ const homeSchema = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-brand-paper px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-      <section className="mx-auto flex max-w-6xl flex-col gap-8 rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft backdrop-blur sm:p-10 lg:p-12">
+    <main className="min-h-screen bg-brand-paper">
+      <div className="page-shell">
+      <section className="page-section flex flex-col gap-8 backdrop-blur">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="info-banner w-fit">Sécurité, confidentialité et accompagnement clinique</p>
           <span className="rounded-full border border-brand-mist bg-brand-paper px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-deep">
@@ -103,7 +99,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-8 grid max-w-6xl gap-4 lg:grid-cols-3">
+      <section className="mt-8 grid gap-4 md:grid-cols-2">
         {highlights.map((item) => (
           <article key={item.title} className="card-surface flex flex-col gap-3">
             <h2 className="font-display text-2xl font-semibold text-brand-deep">{item.title}</h2>
@@ -115,6 +111,7 @@ export default function HomePage() {
         ))}
       </section>
       <StructuredData data={homeSchema} />
+      </div>
     </main>
   );
 }

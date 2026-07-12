@@ -8,9 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/qui-suis-je',
     '/accompagnements',
     '/methodes',
-    '/preuves-scientifiques',
     '/temoignages',
     '/tarifs',
+    '/mentions-legales',
+    '/politique-confidentialite',
+    '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

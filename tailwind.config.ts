@@ -40,13 +40,19 @@ export default {
     plugin(function ({ addComponents }) {
       addComponents({
         '.btn-cta-primary': {
-          '@apply inline-flex items-center justify-center rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-200 hover:bg-brand-emeraldHover': {},
+          '@apply inline-flex items-center justify-center rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-emeraldHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald/40': {},
         },
         '.card-surface': {
-          '@apply rounded-3xl border border-brand-mist bg-white/90 p-6 shadow-soft': {},
+          '@apply rounded-3xl border border-brand-mist bg-white/90 p-6 shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-emerald/30': {},
         },
         '.info-banner': {
           '@apply flex items-center gap-3 rounded-full border border-brand-mist bg-brand-paper px-4 py-3 text-sm text-brand-ink': {},
+        },
+        '.page-shell': {
+          '@apply mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16': {},
+        },
+        '.page-section': {
+          '@apply rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft transition-all duration-300 ease-out sm:p-10 lg:p-12': {},
         },
       });
     }),
