@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
+  { href: '/qui-suis-je', label: 'Qui suis-je' },
   { href: '/accompagnements', label: 'Mes accompagnements' },
   { href: '/methodes', label: 'Mes méthodes' },
   { href: '/preuves-scientifiques', label: 'Preuves scientifiques' },
