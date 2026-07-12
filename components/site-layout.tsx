@@ -12,8 +12,6 @@ const navLinks = [
   { href: '/preuves-scientifiques', label: 'Preuves scientifiques' },
   { href: '/temoignages', label: 'Témoignages' },
   { href: '/tarifs', label: 'Tarifs' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
