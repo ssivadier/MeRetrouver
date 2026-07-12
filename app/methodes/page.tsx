@@ -1,4 +1,19 @@
+import type { Metadata } from 'next';
 import { MethodSection } from '@/components/methods/MethodSection';
+
+export const metadata: Metadata = {
+  title: 'Mes méthodes',
+  description: 'Présentation des méthodes d’hypnose, de cohérence cardiaque et des rythmes binauraux dans un cadre rassurant et professionnel.',
+  alternates: {
+    canonical: 'https://meretrouver.fr/methodes',
+  },
+  openGraph: {
+    title: 'Mes méthodes | Me Retrouver',
+    description: 'Présentation des méthodes d’hypnose, de cohérence cardiaque et des rythmes binauraux dans un cadre rassurant et professionnel.',
+    url: 'https://meretrouver.fr/methodes',
+    type: 'website',
+  },
+};
 
 const methods = [
   {

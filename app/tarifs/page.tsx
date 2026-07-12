@@ -1,5 +1,20 @@
+import type { Metadata } from 'next';
 import { PricingSection } from '@/components/pricing/PricingSection';
 import { BookingButton } from '@/components/ui/BookingButton';
+
+export const metadata: Metadata = {
+  title: 'Tarifs',
+  description: 'Informations sur le déroulé d’une séance, le tarif de 70 € et les modalités de prise de rendez-vous.',
+  alternates: {
+    canonical: 'https://meretrouver.fr/tarifs',
+  },
+  openGraph: {
+    title: 'Tarifs | Me Retrouver',
+    description: 'Informations sur le déroulé d’une séance, le tarif de 70 € et les modalités de prise de rendez-vous.',
+    url: 'https://meretrouver.fr/tarifs',
+    type: 'website',
+  },
+};
 
 const sections = [
   {

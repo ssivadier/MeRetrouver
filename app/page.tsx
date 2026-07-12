@@ -1,4 +1,22 @@
+import type { Metadata } from 'next';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { StructuredData } from '@/components/seo/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'Accueil',
+  description: 'Accompagnement professionnel en hypnothérapie et cohérence cardiaque pour le stress, le burnout, les phobies et l’équilibre émotionnel.',
+  alternates: {
+    canonical: 'https://meretrouver.fr/',
+  },
+  openGraph: {
+    title: 'Me Retrouver | Hypnothérapie & gestion du stress',
+    description: 'Accompagnement professionnel en hypnothérapie et cohérence cardiaque pour le stress, le burnout, les phobies et l’équilibre émotionnel.',
+    url: 'https://meretrouver.fr/',
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'Me Retrouver',
+  },
+};
 
 const highlights = [
   {
@@ -17,6 +35,28 @@ const highlights = [
     href: '/preuves-scientifiques',
   },
 ];
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'MedicalBusiness'],
+  name: 'Me Retrouver',
+  url: 'https://meretrouver.fr',
+  telephone: '+33 6 12 34 56 78',
+  email: 'contact@meretrouver.fr',
+  description: 'Pratique d’hypnothérapie et d’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle.',
+  areaServed: {
+    '@type': 'Place',
+    name: 'Lyon et à distance',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'À définir',
+    addressLocality: 'Lyon',
+    addressRegion: 'AuRA',
+    postalCode: '69000',
+    addressCountry: 'FR',
+  },
+};
 
 export default function HomePage() {
   return (
@@ -74,6 +114,7 @@ export default function HomePage() {
           </article>
         ))}
       </section>
+      <StructuredData data={homeSchema} />
     </main>
   );
 }

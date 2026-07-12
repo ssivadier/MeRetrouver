@@ -1,4 +1,19 @@
+import type { Metadata } from 'next';
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
+
+export const metadata: Metadata = {
+  title: 'Témoignages',
+  description: 'Retours d’expériences sur l’accompagnement proposé autour du stress, du burnout et de l’équilibre émotionnel.',
+  alternates: {
+    canonical: 'https://meretrouver.fr/temoignages',
+  },
+  openGraph: {
+    title: 'Témoignages | Me Retrouver',
+    description: 'Retours d’expériences sur l’accompagnement proposé autour du stress, du burnout et de l’équilibre émotionnel.',
+    url: 'https://meretrouver.fr/temoignages',
+    type: 'website',
+  },
+};
 
 const testimonials = [
   {
