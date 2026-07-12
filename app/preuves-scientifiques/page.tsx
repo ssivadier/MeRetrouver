@@ -1,3 +1,19 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Preuves scientifiques',
+  description: 'Références et éléments de validité clinique autour de l’hypnose et de la cohérence cardiaque.',
+  alternates: {
+    canonical: 'https://meretrouver.fr/preuves-scientifiques',
+  },
+  openGraph: {
+    title: 'Preuves scientifiques | Me Retrouver',
+    description: 'Références et éléments de validité clinique autour de l’hypnose et de la cohérence cardiaque.',
+    url: 'https://meretrouver.fr/preuves-scientifiques',
+    type: 'website',
+  },
+};
+
 export default function PreuvesPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-6 px-6 py-20">

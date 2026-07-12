@@ -64,6 +64,9 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Mise en avant de l’accompagnement autour du bien-être, du stress et de la gestion émotionnelle
 - Intégration d’un bouton de prise de rendez-vous via system.io
 - Structure simple et élégante, compatible avec un premier lancement rapide
+- Gestion des métadonnées SEO par page avec title, description et Open Graph
+- Génération d’un sitemap.xml et d’un robots.txt pour le référencement technique
+- Intégration de données structurées Schema.org LocalBusiness / MedicalBusiness sur l’accueil et la page Contact
 
 ## Structure prévue
 
@@ -71,3 +74,10 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - /components : composants réutilisables
 - /content : contenu textuel et données structurées
 - /public : images et ressources statiques
+
+## SEO et référencement
+
+- Les pages principales exportent des métadonnées via les metadata de Next.js App Router
+- Les Open Graph et les URLs canoniques sont définies pour chaque page importante
+- Un sitemap.xml et un robots.txt sont générés automatiquement depuis l’application
+- Des JSON-LD Schema.org sont injectés sur l’accueil et la page Contact pour renforcer le référencement local

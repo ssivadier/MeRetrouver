@@ -1,4 +1,19 @@
+import type { Metadata } from 'next';
 import { ServiceSection } from '@/components/services/ServiceSection';
+
+export const metadata: Metadata = {
+  title: 'Mes accompagnements',
+  description: 'Accompagnement professionnel pour le stress, le burnout, les phobies et les troubles liés au stress post-traumatique.',
+  alternates: {
+    canonical: 'https://meretrouver.fr/accompagnements',
+  },
+  openGraph: {
+    title: 'Mes accompagnements | Me Retrouver',
+    description: 'Accompagnement professionnel pour le stress, le burnout, les phobies et les troubles liés au stress post-traumatique.',
+    url: 'https://meretrouver.fr/accompagnements',
+    type: 'website',
+  },
+};
 
 const services = [
   {

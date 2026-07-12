@@ -18,8 +18,23 @@ const bodyFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Me Retrouver',
-  description: 'Site vitrine professionnel pour l’hypnothérapie et la gestion du stress.',
+  metadataBase: new URL('https://meretrouver.fr'),
+  title: {
+    default: 'Me Retrouver | Hypnothérapie & gestion du stress',
+    template: '%s | Me Retrouver',
+  },
+  description: 'Site vitrine professionnel pour l’hypnothérapie, le stress, le burnout, les phobies et la gestion émotionnelle.',
+  alternates: {
+    canonical: 'https://meretrouver.fr',
+  },
+  openGraph: {
+    title: 'Me Retrouver | Hypnothérapie & gestion du stress',
+    description: 'Site vitrine professionnel pour l’hypnothérapie, le stress, le burnout, les phobies et la gestion émotionnelle.',
+    url: 'https://meretrouver.fr',
+    siteName: 'Me Retrouver',
+    type: 'website',
+    locale: 'fr_FR',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
