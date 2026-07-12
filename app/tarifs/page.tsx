@@ -1,4 +1,5 @@
 import { PricingSection } from '@/components/pricing/PricingSection';
+import { BookingButton } from '@/components/ui/BookingButton';
 
 const sections = [
   {
@@ -43,9 +44,7 @@ export default function TarifsPage() {
           <PricingSection key={section.title} {...section} />
         ))}
         <div className="flex justify-center">
-          <a href="https://system.io" className="btn-cta-primary">
-            Prendre RDV
-          </a>
+          <BookingButton />
         </div>
       </div>
     </main>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { BookingButton } from '@/components/ui/BookingButton';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -50,9 +51,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
 
-          <a href="https://system.io" className="btn-cta-primary hidden md:inline-flex">
-            Prendre RDV
-          </a>
+          <div className="hidden md:inline-flex">
+            <BookingButton />
+          </div>
         </div>
 
         {open && (
@@ -64,9 +65,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <a href="https://system.io" className="btn-cta-primary mt-4 inline-flex" onClick={() => setOpen(false)}>
-              Prendre RDV
-            </a>
+            <div className="mt-4 inline-flex" onClick={() => setOpen(false)}>
+              <BookingButton />
+            </div>
           </div>
         )}
       </header>
