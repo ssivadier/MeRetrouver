@@ -68,6 +68,7 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Génération d’un sitemap.xml et d’un robots.txt pour le référencement technique
 - Intégration de données structurées Schema.org LocalBusiness / MedicalBusiness sur l’accueil et la page Contact
 - Intégration de Google Analytics 4 avec un événement de conversion dédié au clic sur les boutons “Prendre RDV”
+- Création des pages “Mentions légales” et “Politique de confidentialité” avec une structure standard conforme RGPD (responsable du traitement, données collectées via le formulaire de contact, durée de conservation, droits d’accès/suppression)
 
 ## Structure prévue
 
