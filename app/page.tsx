@@ -37,7 +37,7 @@ const homeSchema = {
   name: 'Me Retrouver',
   url: 'https://meretrouver.fr',
   telephone: '+33 6 12 34 56 78',
-  email: 'contact@meretrouver.fr',
+  email: 'contact[at]meretrouver.fr',
   description: 'Pratique d’hypnothérapie et d’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle.',
   areaServed: {
     '@type': 'Place',
