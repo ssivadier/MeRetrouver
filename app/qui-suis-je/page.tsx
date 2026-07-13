@@ -39,7 +39,7 @@ export default function AboutPage() {
             </div>
             <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-4 text-sm leading-7 text-brand-ink/80">
               <p className="font-semibold text-brand-deep">E-mail</p>
-              <p className="mt-1">contact@meretrouver.fr</p>
+              <p className="mt-1">contact[at]meretrouver.fr</p>
             </div>
           </div>
         </section>
