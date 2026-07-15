@@ -1,30 +1,29 @@
-export type PricingSection = {
+export type PricingBenefit = {
+  icon: string;
   title: string;
-  content: string[];
+  description: string;
 };
 
-export const pricingSections: PricingSection[] = [
+export const pricingBenefits: PricingBenefit[] = [
   {
-    title: 'Déroulé d’une séance',
-    content: [
-      'Séance d’environ 1 heure, dans un cadre calme et rassurant.',
-      'Pour un premier rendez-vous, l’objectif est d’échanger sur votre contexte, vos besoins et ce que vous souhaitez travailler ensemble.',
-      'L’accompagnement est adapté à votre rythme, avec un temps d’écoute et des propositions concrètes pour la suite.',
-    ],
+    icon: '○',
+    title: '1 heure complète',
+    description: 'Un temps dédié uniquement à vous. Écoute, échange et travail concret, dans un cadre calme et sans jugement.',
   },
   {
-    title: 'Tarif',
-    content: [
-      'Tarif unique : 70 € la séance d’1 heure.',
-      'Beaucoup de mutuelles permettent un remboursement des médecines douces, dont l’hypnose, selon votre contrat et votre couverture.',
-      'Il peut être utile de vérifier auprès de votre mutuelle pour connaître les conditions applicables.',
-    ],
+    icon: '○',
+    title: 'Premier rendez-vous sans engagement',
+    description: 'Faire le point ensemble, comprendre votre situation, et voir si cette approche vous convient — sans pression.',
   },
   {
-    title: 'Possibilités de séance',
-    content: [
-      'Séances possibles à domicile ou en visio selon votre situation et vos préférences.',
-      'Le format est choisi en fonction de votre confort, de votre environnement et de la nature de l’accompagnement.',
-    ],
+    icon: '○',
+    title: 'Adapté à votre rythme',
+    description: 'Pas de protocole rigidement figé. L\'accompagnement s\'ajuste à vous, à votre.avancement et à vos besoins.',
   },
 ];
+
+export const pricingModalities = [
+  'En cabinet, dans un espace calme et sécurisé.',
+  'À domicile, si vous préférez un cadre familier.',
+  'En visio, pour s\'adapter à vos contraintes de temps ou de déplacement.',
+] as const;
