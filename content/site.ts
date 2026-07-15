@@ -22,7 +22,7 @@ export const navLinks = [
   { href: '/', label: 'Accueil' },
   { href: '/qui-suis-je', label: 'Qui suis-je' },
   { href: '/accompagnements', label: 'Mes accompagnements' },
-  { href: '/methodes', label: 'Mes méthodes' },
+  { href: '/methodes', label: 'Pratiques' },
   { href: '/temoignages', label: 'Témoignages' },
   { href: '/tarifs', label: 'Tarifs' },
 ] as const;
