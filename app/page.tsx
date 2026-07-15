@@ -25,10 +25,10 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               Hypnothérapie &amp; accompagnement du stress
             </p>
-            <h1 className="font-display text-4xl font-semibold leading-tight text-brand-deep sm:text-5xl">
+            <h1 className="font-display text-5xl font-semibold leading-tight text-brand-deep">
               Vous êtes en mode survie&nbsp;?
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-brand-ink/80">
+            <p className="max-w-2xl text-base leading-8 text-brand-ink/80">
               Vous teniez le coup. Vous aviez l&apos;habitude de tout gérer, de repousser vos besoins, de Continuer.
               Et un jour, le corps a lâché.
             </p>
@@ -66,7 +66,7 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-deep">
               Ce qui change quand on s&apos;arrête
             </p>
-            <h2 className="font-display text-3xl font-semibold text-brand-deep sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold text-brand-deep">
               On ne sort pas de l&apos;épuisement en &laquo;&nbsp;tenant encore un peu&nbsp;&raquo;
             </h2>
             <p className="max-w-2xl text-base leading-7 text-brand-ink/80">
@@ -77,7 +77,7 @@ export default function HomePage() {
             {homeOutcomes.map((item) => (
               <article key={item.title} className="card-surface flex flex-col gap-3">
                 <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
-                <p className="text-sm leading-7 text-brand-ink/80">{item.description}</p>
+                <p className="text-base leading-7 text-brand-ink/80">{item.description}</p>
               </article>
             ))}
           </div>
@@ -86,7 +86,7 @@ export default function HomePage() {
 
       <Reveal delay={150}>
         <section className="mt-8 page-section flex flex-col items-center gap-6 text-center">
-          <h2 className="font-display text-2xl font-semibold text-brand-deep sm:text-3xl">
+          <h2 className="font-display text-xl font-semibold text-brand-deep">
             Vous méritez de ne plus survivre
           </h2>
           <p className="max-w-xl text-base leading-7 text-brand-ink/80">
