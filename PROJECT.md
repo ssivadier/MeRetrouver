@@ -21,7 +21,7 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 
 - Hero principal centré sur la proposition de valeur autour du stress, du burnout, des phobies et des approches d’hypnose et de cohérence cardiaque
 - Boutons d’action directs vers la prise de rendez-vous et l’exploration de la méthode
-- Trois cartes courtes pour présenter les accompagnements, les méthodes et les preuves scientifiques, chacune avec un lien vers la page dédiée
+- Deux cartes courtes pour présenter les accompagnements et les méthodes, chacune avec un lien vers la page dédiée
 
 ## Page “Qui suis-je”
 
@@ -72,16 +72,102 @@ Créer un site vitrine professionnel pour une activité d’hypnothérapie et de
 - Harmonisation visuelle des espacements et transitions sur l’ensemble du site, avec une palette cohérente et des cartes plus sobres sur l’accueil
 - Suppression du menu “Preuves scientifiques” et de la page associée, afin d’alléger l’arborescence et renforcer la cohérence du parcours utilisateur
 
-## Structure prévue
+## Structure du projet
 
-- /app : pages Next.js (App Router)
-- /components : composants réutilisables
-- /content : contenu textuel et données structurées
-- /public : images et ressources statiques
+```
+/app                    Pages Next.js (App Router)
+/components
+  /about                Composants page Qui suis-je
+  /layout               PageShell, PageHeader, ContactDetails
+  /methods              Composants page Méthodes
+  /pricing              Composants page Tarifs
+  /seo                  JSON-LD Schema.org
+  /services             Composants page Accompagnements
+  /testimonials         Composants page Témoignages
+  /ui                   BookingButton et éléments UI
+  site-layout.tsx       Header, navigation et footer
+/content                Données textuelles et configuration centralisée
+  site.ts               Config globale (URL, contact, navigation, sitemap, schema)
+  home.ts               Contenu page d’accueil
+  about.ts              Contenu page Qui suis-je
+  services.ts           Données accompagnements
+  methods.ts            Données méthodes
+  testimonials.ts       Données témoignages
+  pricing.ts            Données tarifs
+/lib
+  seo.ts                Helper createPageMetadata() pour les métadonnées SEO
+/public                 Images et ressources statiques
+```
+
+## Architecture et maintenabilité
+
+### Configuration centralisée (`content/site.ts`)
+
+Toutes les informations globales du site sont regroupées dans un seul fichier :
+
+- Nom, tagline, URL de base, description
+- Coordonnées (téléphone, e-mail, adresse)
+- Liens de navigation (`navLinks`)
+- Routes du sitemap (`sitemapRoutes`)
+- Générateur de schéma JSON-LD (`createBusinessSchema`)
+
+Pour modifier le téléphone, l’e-mail ou l’URL du site, il suffit d’éditer `content/site.ts`.
+
+### Contenu séparé de la présentation
+
+Les textes et données structurées de chaque page sont dans `/content`. Les pages dans `/app` se limitent à assembler composants et données. Les composants dans `/components` gèrent uniquement le rendu.
+
+### Composants de layout réutilisables
+
+- `PageShell` : conteneur standardisé (remplace les `<main>` imbriqués invalides)
+- `PageHeader` : en-tête de page uniforme (eyebrow, titre, description)
+- `ContactDetails` : bloc téléphone/e-mail réutilisé sur Contact et Qui suis-je
+
+### SEO unifié (`lib/seo.ts`)
+
+La fonction `createPageMetadata()` génère automatiquement title, description, canonical et Open Graph pour chaque page à partir d’un chemin et d’une description.
+
+### Classes CSS partagées (Tailwind)
+
+Les classes utilitaires définies dans `tailwind.config.ts` assurent la cohérence visuelle :
+
+- `.page-shell` : conteneur de page
+- `.page-section` : section avec bordure, ombre et padding
+- `.card-surface` : carte légère
+- `.btn-cta-primary` : bouton CTA principal
+- `.info-banner` : bandeau d’information
 
 ## SEO et référencement
 
-- Les pages principales exportent des métadonnées via les metadata de Next.js App Router
+- Les pages principales exportent des métadonnées via `createPageMetadata()` de `lib/seo.ts`
 - Les Open Graph et les URLs canoniques sont définies pour chaque page importante
-- Un sitemap.xml et un robots.txt sont générés automatiquement depuis l’application
-- Des JSON-LD Schema.org sont injectés sur l’accueil et la page Contact pour renforcer le référencement local
+- Un sitemap.xml et un robots.txt sont générés automatiquement depuis `content/site.ts`
+- Des JSON-LD Schema.org sont injectés sur l’accueil et la page Contact via `createBusinessSchema()`
+
+## Refactoring récent (maintenabilité)
+
+Corrections et optimisations apportées :
+
+1. **Centralisation** : création de `/content` et `/lib/seo.ts` pour éliminer la duplication de données et de métadonnées
+2. **Cohérence e-mail** : uniformisation sur `contact@meretrouver.fr` (suppression du format `contact[at]`)
+3. **HTML valide** : suppression des balises `<main>` imbriquées dans les pages (le layout global gère déjà `<main>`)
+4. **Navigation Next.js** : remplacement des `<a href>` par `<Link>` sur l’accueil
+5. **Styles harmonisés** : adoption de `.page-section` sur toutes les sections (y compris mentions légales et politique de confidentialité)
+6. **Contact cliquable** : liens `tel:` et `mailto:` dans le composant `ContactDetails`
+7. **Types partagés** : les composants de section importent leurs types depuis les fichiers `content/`
+
+## Variables d’environnement
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_BOOKING_URL` | URL system.io pour la prise de rendez-vous |
+| `NEXT_PUBLIC_GA_ID` | Identifiant Google Analytics 4 |
+
+## Commandes
+
+```bash
+npm run dev    # Serveur de développement
+npm run build  # Build de production
+npm run start  # Serveur de production
+npm run lint   # Vérification ESLint
+```

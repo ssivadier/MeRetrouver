@@ -1,13 +1,10 @@
-type ServiceSectionProps = {
-  title: string;
-  intro: string;
-  signs: string[];
-  approach: string[];
-};
+import type { Service } from '@/content/services';
+
+type ServiceSectionProps = Service;
 
 export function ServiceSection({ title, intro, signs, approach }: ServiceSectionProps) {
   return (
-    <section className="rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft">
+    <section className="page-section">
       <div className="space-y-4">
         <h2 className="font-display text-2xl font-semibold text-brand-deep">{title}</h2>
         <p className="text-base leading-8 text-brand-ink/80">{intro}</p>

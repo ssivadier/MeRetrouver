@@ -1,8 +1,9 @@
 "use client";
 
 import Link from 'next/link';
+import { siteConfig } from '@/content/site';
 
-const fallbackMailto = 'mailto:contact@meretrouver.fr';
+const fallbackMailto = `mailto:${siteConfig.email}`;
 
 declare global {
   interface Window {

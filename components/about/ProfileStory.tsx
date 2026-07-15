@@ -1,13 +1,15 @@
+import { profileStoryDefaults } from '@/content/about';
+
 type ProfileStoryProps = {
   title?: string;
   text?: string;
-  bulletPoints?: string[];
+  bulletPoints?: readonly string[] | string[];
 };
 
 export function ProfileStory({
-  title = 'Présentation',
-  text = 'Ajoutez ici votre bio, votre parcours, vos formations suivies et votre manière d’accompagner.',
-  bulletPoints = ['Formation suivie', 'Années de pratique', 'Approche personnelle'],
+  title = profileStoryDefaults.title,
+  text = profileStoryDefaults.text,
+  bulletPoints = profileStoryDefaults.bulletPoints,
 }: ProfileStoryProps) {
   return (
     <section className="card-surface space-y-4">
