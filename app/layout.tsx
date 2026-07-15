@@ -1,22 +1,22 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import { Manrope, Source_Sans_3 } from 'next/font/google';
 import Script from 'next/script';
 import { SiteLayout } from '@/components/site-layout';
 import { siteConfig } from '@/content/site';
 
-const displayFont = Cormorant_Garamond({
+const displayFont = Manrope({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-display',
-  weight: ['500', '600', '700'],
+  weight: ['700'],
 });
 
-const bodyFont = Inter({
+const bodyFont = Source_Sans_3({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-body',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400'],
 });
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_ID?.trim();
