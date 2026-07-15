@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Reveal';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { BarriosStudy } from '@/components/methods/BarriosStudy';
+import { CoherenceStudy } from '@/components/methods/CoherenceStudy';
 import { MethodSection } from '@/components/methods/MethodSection';
 import { methods } from '@/content/methods';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
@@ -16,7 +17,10 @@ export const metadata = createPageMetadata({
 });
 
 const hypnose = methods.find((m) => m.title === 'Hypnose');
-const otherMethods = methods.filter((m) => m.title !== 'Hypnose');
+const coherence = methods.find((m) => m.title === 'Cohérence cardiaque');
+const otherMethods = methods.filter(
+  (m) => m.title !== 'Hypnose' && m.title !== 'Cohérence cardiaque'
+);
 
 export default function MethodesPage() {
   return (
@@ -39,8 +43,18 @@ export default function MethodesPage() {
         <BarriosStudy />
       </Reveal>
 
+      {coherence && (
+        <Reveal delay={200}>
+          <MethodSection {...coherence} />
+        </Reveal>
+      )}
+
+      <Reveal delay={250}>
+        <CoherenceStudy />
+      </Reveal>
+
       {otherMethods.map((method, i) => (
-        <Reveal key={method.title} delay={200 + i * 100}>
+        <Reveal key={method.title} delay={300 + i * 100}>
           <MethodSection {...method} />
         </Reveal>
       ))}
