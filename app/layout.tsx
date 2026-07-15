@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="min-h-screen bg-brand-paper font-body text-brand-ink">
+      <body className="min-h-screen bg-brand-paper bg-texture font-body text-brand-ink">
         {gaMeasurementId ? (
           <>
             <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
