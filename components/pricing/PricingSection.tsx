@@ -1,11 +1,10 @@
-type PricingSectionProps = {
-  title: string;
-  content: string[];
-};
+import type { PricingSection as PricingSectionData } from '@/content/pricing';
+
+type PricingSectionProps = PricingSectionData;
 
 export function PricingSection({ title, content }: PricingSectionProps) {
   return (
-    <section className="rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft">
+    <section className="page-section">
       <h2 className="font-display text-2xl font-semibold text-brand-deep">{title}</h2>
       <ul className="mt-4 space-y-3 text-base leading-8 text-brand-ink/80">
         {content.map((item) => (

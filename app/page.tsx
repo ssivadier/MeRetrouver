@@ -1,62 +1,23 @@
-import type { Metadata } from 'next';
+import Link from 'next/link';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PageShell } from '@/components/layout/PageShell';
 import { StructuredData } from '@/components/seo/JsonLd';
+import { homeHighlights } from '@/content/home';
+import { createBusinessSchema } from '@/content/site';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Accueil',
-  description: 'Accompagnement professionnel en hypnothérapie et cohérence cardiaque pour le stress, le burnout, les phobies et l’équilibre émotionnel.',
-  alternates: {
-    canonical: 'https://meretrouver.fr/',
-  },
-  openGraph: {
-    title: 'Me Retrouver | Hypnothérapie & gestion du stress',
-    description: 'Accompagnement professionnel en hypnothérapie et cohérence cardiaque pour le stress, le burnout, les phobies et l’équilibre émotionnel.',
-    url: 'https://meretrouver.fr/',
-    type: 'website',
-    locale: 'fr_FR',
-    siteName: 'Me Retrouver',
-  },
-};
+  description:
+    'Accompagnement professionnel en hypnothérapie et cohérence cardiaque pour le stress, le burnout, les phobies et l’équilibre émotionnel.',
+  path: '/',
+});
 
-const highlights = [
-  {
-    title: 'Mes accompagnements',
-    description: 'Un accompagnement structuré pour le stress, le burnout et les phobies.',
-    href: '/accompagnements',
-  },
-  {
-    title: 'Mes méthodes',
-    description: 'Hypnose et cohérence cardiaque pour retrouver un rythme plus apaisé.',
-    href: '/methodes',
-  },
-];
-
-const homeSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'MedicalBusiness'],
-  name: 'Me Retrouver',
-  url: 'https://meretrouver.fr',
-  telephone: '+33 6 12 34 56 78',
-  email: 'contact[at]meretrouver.fr',
-  description: 'Pratique d’hypnothérapie et d’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle.',
-  areaServed: {
-    '@type': 'Place',
-    name: 'Lyon et à distance',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'À définir',
-    addressLocality: 'Lyon',
-    addressRegion: 'AuRA',
-    postalCode: '69000',
-    addressCountry: 'FR',
-  },
-};
+const homeSchema = createBusinessSchema({ includeLocalBusiness: true });
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-brand-paper">
-      <div className="page-shell">
+    <PageShell>
       <section className="page-section flex flex-col gap-8 backdrop-blur">
         <div className="overflow-hidden rounded-[2rem] border border-brand-mist/80 bg-brand-paper/70">
           <img src="/hero-abstract.svg" alt="Illustration de calme et de soutien" className="h-44 w-full object-cover sm:h-56" />
@@ -80,9 +41,12 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <BookingButton />
-              <a href="/methodes" className="rounded-full border border-brand-mist bg-white px-6 py-3 text-sm font-semibold text-brand-deep transition hover:border-brand-emerald hover:text-brand-emerald">
+              <Link
+                href="/methodes"
+                className="rounded-full border border-brand-mist bg-white px-6 py-3 text-sm font-semibold text-brand-deep transition hover:border-brand-emerald hover:text-brand-emerald"
+              >
                 Découvrir mon approche
-              </a>
+              </Link>
             </div>
           </div>
           <div className="card-surface flex flex-col gap-4">
@@ -103,18 +67,17 @@ export default function HomePage() {
       </section>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2">
-        {highlights.map((item) => (
+        {homeHighlights.map((item) => (
           <article key={item.title} className="card-surface flex flex-col gap-3">
             <h2 className="font-display text-2xl font-semibold text-brand-deep">{item.title}</h2>
             <p className="text-sm leading-7 text-brand-ink/80">{item.description}</p>
-            <a href={item.href} className="mt-auto text-sm font-semibold text-brand-emerald transition hover:text-brand-emeraldHover">
+            <Link href={item.href} className="mt-auto text-sm font-semibold text-brand-emerald transition hover:text-brand-emeraldHover">
               En savoir plus →
-            </a>
+            </Link>
           </article>
         ))}
       </section>
       <StructuredData data={homeSchema} />
-      </div>
-    </main>
+    </PageShell>
   );
 }

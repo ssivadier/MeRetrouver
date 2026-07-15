@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { siteConfig } from '@/content/site';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://meretrouver.fr/sitemap.xml',
-    host: 'https://meretrouver.fr',
+    sitemap: `${siteConfig.baseUrl}/sitemap.xml`,
+    host: siteConfig.baseUrl,
   };
 }

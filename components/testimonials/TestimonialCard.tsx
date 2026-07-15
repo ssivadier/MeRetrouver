@@ -1,10 +1,6 @@
-type TestimonialCardProps = {
-  name: string;
-  initials?: string;
-  quote: string;
-  rating?: number;
-  photoAlt?: string;
-};
+import type { Testimonial } from '@/content/testimonials';
+
+type TestimonialCardProps = Testimonial;
 
 export function TestimonialCard({
   name,

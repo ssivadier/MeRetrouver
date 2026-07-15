@@ -1,9 +1,12 @@
-<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="320" height="320" rx="80" fill="#F4F7F2"/>
-  <circle cx="160" cy="160" r="110" fill="#E8F0EC"/>
-  <path d="M100 120C100 105.64 110.64 95 125 95H195C209.36 95 220 105.64 220 120V134C220 148.36 209.36 159 195 159H125C110.64 159 100 148.36 100 134V120Z" fill="#1F6E5C"/>
-  <path d="M115 159H205V197C205 219.09 187.09 237 165 237H155C132.91 237 115 219.09 115 197V159Z" fill="#0F2B3D"/>
-  <path d="M132 172H188" stroke="#D9A441" stroke-width="10" stroke-linecap="round"/>
-  <path d="M132 194H172" stroke="#D9A441" stroke-width="10" stroke-linecap="round"/>
-  <path d="M120 82C139.47 66.91 180.53 66.91 200 82" stroke="#6B2333" stroke-width="8" stroke-linecap="round"/>
+<svg width="680" height="680" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Icône logo Me Retrouver, version épurée</title>
+<desc>Trait monolinéaire unique dégradé du vert émeraude à l'or, débutant par une courte ligne droite qui se prolonge hors cadre puis s'enroule sur environ un tour et quart vers un point doré central, sur fond entièrement transparent, pour une évocation abstraite et moderne du chemin vers soi.</desc>
+<defs>
+<linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#1F6E5C"/>
+<stop offset="100%" stop-color="#E8B95F"/>
+</linearGradient>
+</defs>
+<path d="M 628 318 L 575.0 340.0 L 567.8 368.1 L 558.3 394.8 L 546.2 419.7 L 531.4 442.5 L 514.3 463.1 L 495.3 481.1 L 474.5 496.4 L 452.4 508.8 L 429.3 518.3 L 405.7 524.8 L 381.8 528.2 L 358.1 528.7 L 334.9 526.3 L 312.6 521.1 L 291.4 513.4 L 271.7 503.3 L 253.7 491.0 L 237.7 476.8 L 223.8 461.1 L 212.1 444.0 L 202.9 426.0 L 196.0 407.3 L 191.6 388.2 L 189.7 369.1 L 190.2 350.2 L 192.9 332.0 L 197.8 314.5 L 204.7 298.1 L 213.5 283.0 L 223.8 269.3 L 235.6 257.4 L 248.4 247.2 L 262.2 238.8 L 276.6 232.4 L 291.3 228.0 L 306.2 225.5 L 321.0 224.9 L 335.3 226.2 L 349.1 229.1 L 362.1 233.7 L 374.1 239.8 L 385.0 247.1 L 394.6 255.6 L 402.8 264.9 L 409.6 275.0 L 414.9 285.6 L 418.7 296.4 L 421.0 307.4 L 421.9 318.3 L 421.4 328.8 L 419.5 338.9 L 416.5 348.4 L 412.4 357.1 L 407.3 365.0 L 401.5 371.9 L 395.0 377.7 L 388.0 382.5 L 380.8 386.1 L 373.4 388.7 L 366.0 390.2 L 358.8 390.6 L 351.8 390.1 L 345.3 388.7 L 339.4 386.4 L 334.0 383.5 L 329.4 380.1 L 325.5 376.1 L 322.3 371.9 L 320.0 367.5" fill="none" stroke="url(#lineGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="320" cy="367.5" r="7" fill="#E8B95F"/>
 </svg>

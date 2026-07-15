@@ -1,14 +1,10 @@
-type MethodSectionProps = {
-  title: string;
-  summary: string;
-  howItWorks: string[];
-  uses: string[];
-  evidence?: string;
-};
+import type { Method } from '@/content/methods';
+
+type MethodSectionProps = Method;
 
 export function MethodSection({ title, summary, howItWorks, uses, evidence }: MethodSectionProps) {
   return (
-    <section className="rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft">
+    <section className="page-section">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Méthode</p>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import Script from 'next/script';
 import { SiteLayout } from '@/components/site-layout';
+import { siteConfig } from '@/content/site';
 
 const displayFont = Cormorant_Garamond({
   subsets: ['latin'],
@@ -21,20 +22,20 @@ const bodyFont = Inter({
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_ID?.trim();
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://meretrouver.fr'),
+  metadataBase: new URL(siteConfig.baseUrl),
   title: {
-    default: 'Me Retrouver | Hypnothérapie & gestion du stress',
-    template: '%s | Me Retrouver',
+    default: `${siteConfig.name} | Hypnothérapie & gestion du stress`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: 'Site vitrine professionnel pour l’hypnothérapie, le stress, le burnout, les phobies et la gestion émotionnelle.',
+  description: siteConfig.description,
   alternates: {
-    canonical: 'https://meretrouver.fr',
+    canonical: siteConfig.baseUrl,
   },
   openGraph: {
-    title: 'Me Retrouver | Hypnothérapie & gestion du stress',
-    description: 'Site vitrine professionnel pour l’hypnothérapie, le stress, le burnout, les phobies et la gestion émotionnelle.',
-    url: 'https://meretrouver.fr',
-    siteName: 'Me Retrouver',
+    title: `${siteConfig.name} | Hypnothérapie & gestion du stress`,
+    description: siteConfig.description,
+    url: siteConfig.baseUrl,
+    siteName: siteConfig.name,
     type: 'website',
     locale: 'fr_FR',
   },

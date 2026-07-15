@@ -3,15 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { BookingButton } from '@/components/ui/BookingButton';
-
-const navLinks = [
-  { href: '/', label: 'Accueil' },
-  { href: '/qui-suis-je', label: 'Qui suis-je' },
-  { href: '/accompagnements', label: 'Mes accompagnements' },
-  { href: '/methodes', label: 'Mes méthodes' },
-  { href: '/temoignages', label: 'Témoignages' },
-  { href: '/tarifs', label: 'Tarifs' },
-];
+import { navLinks, siteConfig } from '@/content/site';
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -25,8 +17,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
               <img src="/logo-meretrouver.svg" alt="Logo Me Retrouver" className="h-11 w-11 object-cover" />
             </div>
             <div>
-              <p className="font-display text-xl font-semibold text-brand-deep">Me Retrouver</p>
-              <p className="text-xs uppercase tracking-[0.3em] text-brand-emerald">Hypnothérapie</p>
+              <p className="font-display text-xl font-semibold text-brand-deep">{siteConfig.name}</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-brand-emerald">{siteConfig.tagline}</p>
             </div>
           </Link>
 
@@ -74,7 +66,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-brand-mist bg-brand-deep px-6 py-10 text-sm text-white/90">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md space-y-2">
-            <p className="font-display text-2xl text-white">Me Retrouver</p>
+            <p className="font-display text-2xl text-white">{siteConfig.name}</p>
             <p>
               Accompagnement professionnel autour de l’hypnothérapie, du stress et de la gestion émotionnelle dans un cadre respectueux et rassurant.
             </p>
