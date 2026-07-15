@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Reveal';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { BarriosStudy } from '@/components/methods/BarriosStudy';
+import { BinauralStudy } from '@/components/methods/BinauralStudy';
 import { CoherenceStudy } from '@/components/methods/CoherenceStudy';
 import { MethodSection } from '@/components/methods/MethodSection';
 import { methods } from '@/content/methods';
@@ -18,9 +19,7 @@ export const metadata = createPageMetadata({
 
 const hypnose = methods.find((m) => m.title === 'Hypnose');
 const coherence = methods.find((m) => m.title === 'Cohérence cardiaque');
-const otherMethods = methods.filter(
-  (m) => m.title !== 'Hypnose' && m.title !== 'Cohérence cardiaque'
-);
+const binaural = methods.find((m) => m.title === 'Rythmes binauraux');
 
 export default function MethodesPage() {
   return (
@@ -53,11 +52,15 @@ export default function MethodesPage() {
         <CoherenceStudy />
       </Reveal>
 
-      {otherMethods.map((method, i) => (
-        <Reveal key={method.title} delay={300 + i * 100}>
-          <MethodSection {...method} />
+      {binaural && (
+        <Reveal delay={300}>
+          <MethodSection {...binaural} />
         </Reveal>
-      ))}
+      )}
+
+      <Reveal delay={350}>
+        <BinauralStudy />
+      </Reveal>
 
       <StructuredData data={createBreadcrumbSchema('/methodes')} />
     </PageShell>
