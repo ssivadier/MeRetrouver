@@ -22,7 +22,6 @@ export default {
       fontFamily: {
         display: ['var(--font-display)', 'Georgia', 'serif'],
         body: ['var(--font-body)', 'Segoe UI', 'sans-serif'],
-        btn: ['var(--font-display)', 'Segoe UI', 'sans-serif'],
       },
       spacing: {
         18: '4.5rem',
@@ -41,7 +40,7 @@ export default {
     plugin(function ({ addComponents }) {
       addComponents({
         '.btn-cta-primary': {
-          '@apply inline-flex items-center justify-center rounded-full bg-brand-emerald px-6 py-3 font-btn text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-emeraldHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald/40': {},
+          '@apply inline-flex items-center justify-center rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-emeraldHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald/40': {},
         },
         '.card-surface': {
           '@apply rounded-3xl border border-brand-mist bg-white/90 p-6 shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-emerald/30': {},
