@@ -49,7 +49,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-brand-mist bg-white shadow-soft">
-              <img src="/logo-meretrouver.svg" alt="" className="h-11 w-11 object-cover" />
+              <img src="/Logo.png" alt="" className="h-11 w-11 object-cover" />
             </div>
             <div>
               <p className="font-display text-xl font-semibold text-brand-deep">{siteConfig.name}</p>
