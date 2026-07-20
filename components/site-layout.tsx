@@ -120,9 +120,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      <main><PageTransition>{children}</PageTransition></main>
+      <main className="relative z-10"><PageTransition>{children}</PageTransition></main>
 
-      <footer className="border-t border-brand-mist bg-brand-deep px-6 py-10 text-sm text-white/90">
+      <footer className="relative z-10 border-t border-brand-mist bg-brand-deep px-6 py-10 text-sm text-white/90">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md space-y-2">
             <p className="font-display text-2xl text-white">{siteConfig.name}</p>
