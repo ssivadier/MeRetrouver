@@ -14,7 +14,7 @@ export default {
           gold: '#D9A441',
           goldHover: '#E8B95F',
           burgundy: '#6B2333',
-          paper: '#F4F7F2',
+          paper: '#FAF6F0',
           mist: '#E8F0EC',
           ink: '#1F2A32',
         },
