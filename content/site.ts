@@ -24,6 +24,7 @@ export const navLinks = [
   { href: '/accompagnements', label: 'Mes accompagnements' },
   { href: '/methodes', label: 'Pratiques' },
   { href: '/temoignages', label: 'Témoignages' },
+  { href: '/test-stress', label: 'Test de stress' },
   { href: '/tarifs', label: 'Tarifs' },
 ] as const;
 
@@ -33,6 +34,7 @@ export const sitemapRoutes = [
   '/accompagnements',
   '/methodes',
   '/temoignages',
+  '/test-stress',
   '/tarifs',
   '/mentions-legales',
   '/politique-confidentialite',
