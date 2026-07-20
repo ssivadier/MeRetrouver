@@ -34,6 +34,6 @@ export const homeOutcomes: HomeOutcome[] = [
   },
   {
     title: 'Une méthode bornée dans le temps',
-    description: 'Entre 5 à 6 séances pour vous sentir mieux et avoir les clefs pour continuer sainement.',
+    description: 'Entre 5 à 8 séances pour vous sentir mieux et avoir les clefs pour continuer sainement.',
   },
 ];

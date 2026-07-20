@@ -23,7 +23,6 @@ export const pricingBenefits: PricingBenefit[] = [
 ];
 
 export const pricingModalities = [
-  'En cabinet, dans un espace calme et sécurisé.',
   'À domicile, si vous préférez un cadre familier.',
   'En visio, pour s\'adapter à vos contraintes de temps ou de déplacement.',
 ] as const;
