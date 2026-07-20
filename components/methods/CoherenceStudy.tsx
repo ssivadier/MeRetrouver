@@ -10,7 +10,7 @@ export function CoherenceStudy() {
         <h2 className="font-display text-2xl font-semibold text-brand-deep sm:text-3xl">
           La cohérence cardiaque, une méthode validée par la science
         </h2>
-        <p className="max-w-2xl text-base leading-7 text-brand-ink/80">
+        <p className="text-base leading-7 text-brand-ink/80">
           Une méta-analyse de 24 études cliniques randomisées, publiée dans{' '}
           <em>Psychological Medicine</em>, confirme l&apos;efficacité de la cohérence cardiaque
           sur le stress et l&apos;anxiété.

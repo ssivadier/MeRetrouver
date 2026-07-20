@@ -26,15 +26,15 @@ export default function MethodesPage() {
         />
       </Reveal>
 
-      <Reveal delay={100}>
+      <Reveal delay={80}>
         <BarriosStudy />
       </Reveal>
 
-      <Reveal delay={200}>
+      <Reveal delay={150}>
         <CoherenceStudy />
       </Reveal>
 
-      <Reveal delay={300}>
+      <Reveal delay={250}>
         <BinauralStudy />
       </Reveal>
 

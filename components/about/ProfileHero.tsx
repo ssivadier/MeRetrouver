@@ -24,12 +24,6 @@ export function ProfileHero({
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Qui suis-je</p>
         <h1 className="font-display text-3xl font-semibold text-brand-deep sm:text-4xl">{name}</h1>
         <p className="text-lg leading-8 text-brand-ink/80">{role}</p>
-        <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-5 text-sm leading-7 text-brand-ink/80">
-          <p className="font-medium text-brand-deep">Pourquoi vouloir aider?</p>
-          <p className="mt-2">
-            "Lorsque vous apportez la paix aux autres, vous l’apportez à vous-même." - Bouddha
-          </p>
-        </div>
       </div>
     </section>
   );

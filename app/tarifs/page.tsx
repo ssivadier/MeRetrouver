@@ -7,12 +7,15 @@ import { pricingBenefits, pricingModalities } from '@/content/pricing';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 
+const cardAccents = ['border-t-brand-gold', 'border-t-brand-burgundy', 'border-t-brand-emerald'];
+
 export const metadata = createPageMetadata({
   title: 'Tarifs',
   description:
-    'Séance d\'hypnothérapie à 70 €. Remboursement possible par certaines mutuelles. Séances en cabinet, à domicile ou en visio à Lyon.',
+    'Séance d\'hypnothérapie à 70 €. Remboursement possible par certaines mutuelles. Séances en cabinet, à domicile ou en visio à Pessac.',
   path: '/tarifs',
 });
+
 
 export default function TarifsPage() {
   return (
@@ -35,33 +38,14 @@ export default function TarifsPage() {
         </section>
       </Reveal>
 
-      <Reveal delay={100}>
-        <section className="mt-8 space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-deep">
-            Ce que comprend chaque séance
-          </p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {pricingBenefits.map((item) => (
-              <article key={item.title} className="card-surface flex flex-col gap-3">
-                <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
-                <p className="text-sm leading-7 text-brand-ink/80">{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delay={150}>
+      <Reveal delay={80}>
         <section className="mt-8 page-section flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
           <div className="flex-1 space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
-              Mutuelles
-            </p>
-            <h2 className="font-display text-2xl font-semibold text-brand-deep">
               Remboursement possible
-            </h2>
+            </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              De nombreuses mutuelles prennent en charge une partie de l&apos;hypnothérapie, selon votre contrat et votre couverture.
+              De nombreuses <span className="highlight-gold">mutuelles prennent en charge</span> une partie de l&apos;hypnothérapie, selon votre contrat et votre couverture.
               Il vous suffit de vérifier auprès de votre mutuelle les conditions applicables à votre situation.
             </p>
           </div>
@@ -69,9 +53,6 @@ export default function TarifsPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               Où se déroule la séance
             </p>
-            <h2 className="font-display text-2xl font-semibold text-brand-deep">
-              Là où vous êtes à l&apos;aise
-            </h2>
             <ul className="space-y-3 text-base leading-7 text-brand-ink/80">
               {pricingModalities.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -83,6 +64,23 @@ export default function TarifsPage() {
           </div>
         </section>
       </Reveal>
+
+      <Reveal delay={150}>
+        <section className="page-section flex flex-col gap-10 backdrop-blur">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-deep">
+            Ce que comprend chaque séance
+          </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {pricingBenefits.map((item, i) => (
+              <article key={item.title} className={`card-surface flex flex-col gap-3 border-t-2 ${cardAccents[i]}`}>
+                <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
+                <p className="text-sm leading-7 text-brand-ink/80">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
 
       <Reveal delay={200}>
         <section className="mt-8 page-section flex flex-col items-center gap-6 text-center">

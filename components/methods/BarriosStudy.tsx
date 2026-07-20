@@ -10,10 +10,10 @@ export function BarriosStudy() {
         <h2 className="font-display text-2xl font-semibold text-brand-deep sm:text-3xl">
           L&apos;hypnose, la thérapie la plus efficace selon la recherche
         </h2>
-        <p className="max-w-2xl text-base leading-7 text-brand-ink/80">
+        <p className="text-base leading-7 text-brand-ink/80">
           Une méta-analyse du Dr Alfred A. Barrios, publiée dans{' '}
           <em>Psychotherapy: Theory, Research and Practice</em> et reprise par{' '}
-          <em>American Health Magazine</em>, compare l&apos;efficacité de trois approches psychothérapeutiques.
+          <em>American Health Magazine</em> en 2006, compare l&apos;efficacité de trois approches psychothérapeutiques.
         </p>
       </div>
 

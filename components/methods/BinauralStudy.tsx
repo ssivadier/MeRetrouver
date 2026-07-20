@@ -10,7 +10,7 @@ export function BinauralStudy() {
         <h2 className="font-display text-2xl font-semibold text-brand-deep sm:text-3xl">
           Des rythmes binauraux prometteurs, mais encore en exploration
         </h2>
-        <p className="max-w-2xl text-base leading-7 text-brand-ink/80">
+        <p className="text-base leading-7 text-brand-ink/80">
           Une méta-analyse de 22 études, publiée dans{' '}
           <em>Psychological Research</em>, confirme un effet moyen des rythmes binauraux sur
           l&apos;anxiété et la cognition — un niveau de preuve inférieur à l&apos;hypnose et à la

@@ -12,7 +12,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Qui suis-je',
   description:
-    'Présentation de la pratique d’hypnothérapie et de l’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle.',
+    'Présentation de la pratique d’hypnothérapie et de l’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle à Pessac.',
   path: '/qui-suis-je',
 });
 
@@ -22,22 +22,19 @@ export default function AboutPage() {
       <Reveal>
         <ProfileHero />
       </Reveal>
-      <Reveal delay={100}>
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
-          <ProfileStory />
-          <ProfileStory {...formationStory} />
-        </div>
+      <Reveal delay={80}>
+        <WhyThisPath />
       </Reveal>
       <Reveal delay={150}>
+          <ProfileStory {...formationStory} />
+      </Reveal>
+      <Reveal delay={200}>
         <section className="page-section">
           <h2 className="font-display text-2xl font-semibold text-brand-deep">Contact</h2>
           <div className="mt-4">
             <ContactDetails />
           </div>
         </section>
-      </Reveal>
-      <Reveal delay={200}>
-        <WhyThisPath />
       </Reveal>
       <StructuredData data={createBreadcrumbSchema('/qui-suis-je')} />
     </PageShell>
