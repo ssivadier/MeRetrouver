@@ -1,4 +1,4 @@
-import { profileStoryDefaults } from '@/content/about';
+import { formationStory } from '@/content/about';
 
 type ProfileStoryProps = {
   title?: string;
@@ -7,12 +7,12 @@ type ProfileStoryProps = {
 };
 
 export function ProfileStory({
-  title = profileStoryDefaults.title,
-  text = profileStoryDefaults.text,
-  bulletPoints = profileStoryDefaults.bulletPoints,
+  title = formationStory.title,
+  text = formationStory.text,
+  bulletPoints = formationStory.bulletPoints,
 }: ProfileStoryProps) {
   return (
-    <section className="card-surface space-y-4">
+    <section className="page-section flex flex-col gap-10 backdrop-blur">
       <h2 className="font-display text-2xl font-semibold text-brand-deep">{title}</h2>
       <p className="text-base leading-8 text-brand-ink/80">{text}</p>
       <ul className="space-y-3 text-sm leading-7 text-brand-ink/80">
