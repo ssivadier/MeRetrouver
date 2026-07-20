@@ -4,7 +4,7 @@
 
 :root {
   color-scheme: light;
-  --bg-page: #f4f7f2;
+  --bg-page: #FAF6F0;
 }
 
 html {
@@ -49,6 +49,12 @@ body {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Gold highlight ── */
+.highlight-gold {
+  background-image: linear-gradient(180deg, transparent 55%, #E8B95F40 55%);
+  font-weight: 600;
 }
 
 /* ── Background texture ── */

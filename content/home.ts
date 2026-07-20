@@ -1,5 +1,5 @@
 export type HomePainPoint = {
-  icon: string;
+  title: string;
   text: string;
 };
 
@@ -10,30 +10,30 @@ export type HomeOutcome = {
 
 export const homePainPoints: HomePainPoint[] = [
   {
-    icon: '○',
-    text: 'Vous tenez le coup depuis des mois, peut-être des années, sans jamais vous arrêter.',
+    title: 'Stress constant',
+    text: 'celui qui s\’installe lentement, jusqu\’à vous vider de votre énergie. Vous vous réveillez fatigué(e), vous vous couchez tendu(e), et entre les deux… vous tenez comme vous pouvez.',
   },
   {
-    icon: '○',
-    text: 'Vous gérez, vous avancez, vous repoussez vos besoins en vous disant que ce n\'est pas le moment.',
+    title: 'Stress post‑traumatique',
+    text: 'celui qui revient par vagues, sans prévenir. Un bruit, une image, une situation… et votre corps réagit avant même que vous compreniez pourquoi.',
   },
   {
-    icon: '○',
-    text: 'Le sommeil ne suffit plus à vous remettre debout. L\'énergie diminue. Le corps commence à parler.',
+    title: 'Stress lié à une phobie',
+    text: 'celui qui vous bloque, vous paralyse, vous fait éviter, contourner, renoncer. Vous savez que la peur est disproportionnée, mais votre corps ne vous écoute pas.',
   },
 ];
 
 export const homeOutcomes: HomeOutcome[] = [
   {
-    title: 'Retrouver un sommeil réparateur',
-    description: 'Quand le stress ne vous empêche plus de dormir, le corps recommence à se reconstruire.',
+    title: 'Une méthode scientifique',
+    description: 'Dans la section \'pratiques\' vous avez accès à un résumé des résultats études scientifiques pour chaque pratique, en toute transparence et honnèteté.',
   },
   {
-    title: 'Récupérer de l\'énergie au quotidien',
-    description: 'Ne plus vivre avec cette fatigue de fond qui s\'accumule et rend tout plus difficile.',
+    title: 'Un travail sur la cause',
+    description: 'Sans travail sur la cause, le mal risque de revenir.',
   },
   {
-    title: 'Gérer le stress sans s\'épuiser',
-    description: 'Apprendre à réguler ses émotions et ses réactions, sans avoir l\'impression de lutter contre soi-même.',
+    title: 'Une méthode bornée dans le temps',
+    description: 'Entre 5 à 6 séances pour vous sentir mieux et avoir les clefs pour continuer sainement.',
   },
 ];
