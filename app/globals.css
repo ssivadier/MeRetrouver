@@ -13,7 +13,8 @@ html {
 
 body {
   background-color: var(--bg-page);
-  color: theme('colors.brand.deep');
+  color: rgb(15 43 61 / 0.8);
+  font-size: 0.9375rem;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,7 +87,7 @@ body {
 }
 
 .bg-image-loaded {
-  opacity: 0.35;
+  opacity: 0.08;
 }
 
 /* ── Reduced motion ── */
