@@ -8,12 +8,12 @@ export const siteConfig = {
   email: 'contact@meretrouver.fr',
   address: {
     streetAddress: 'À définir',
-    addressLocality: 'Lyon',
-    addressRegion: 'AuRA',
-    postalCode: '69000',
+    addressLocality: 'Pessac',
+    addressRegion: 'Nouvelle-Aquitaine',
+    postalCode: '33600',
     addressCountry: 'FR',
   },
-  areaServed: 'Lyon et à distance',
+  areaServed: 'Pessac, Bordeaux et à distance',
   businessDescription:
     'Pratique d’hypnothérapie et d’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle.',
 } as const;

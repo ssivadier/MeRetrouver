@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  *:focus-visible {
+    outline: 2px solid theme('colors.brand.emerald');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
 :root {
   color-scheme: light;
   --bg-page: theme('colors.brand.paper');
