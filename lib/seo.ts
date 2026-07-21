@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/content/site';
 
 type PageMetadataOptions = {
-  title: string;
+  title?: string;
   description: string;
   path: string;
 };
@@ -17,7 +17,7 @@ export function createPageMetadata({ title, description, path }: PageMetadataOpt
       canonical: url,
     },
     openGraph: {
-      title: `${title} | ${siteConfig.name}`,
+      title: title ? `${title} | ${siteConfig.name}` : siteConfig.name,
       description,
       url,
       type: 'website',
