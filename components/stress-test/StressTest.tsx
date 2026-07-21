@@ -65,16 +65,16 @@ export function StressTest() {
 
       <div className="space-y-6">
         {questions.map((question, qIndex) => (
-          <fieldset
+          <div
             key={qIndex}
             className="rounded-2xl border border-brand-mist bg-white/90 p-5 shadow-soft transition-all"
           >
-            <legend className="text-base font-medium text-brand-deep">
+            <p className="text-base font-medium text-brand-deep">
               <span className="mr-2 text-sm font-semibold text-brand-emerald">
                 {qIndex + 1}.
               </span>
               {question}
-            </legend>
+            </p>
             <div className="mt-4 flex flex-wrap gap-2" role="radiogroup" aria-label={question}>
               {labels.map((label, vIndex) => (
                 <button
@@ -94,7 +94,7 @@ export function StressTest() {
                 </button>
               ))}
             </div>
-          </fieldset>
+          </div>
         ))}
       </div>
 
