@@ -11,7 +11,7 @@ export function PageHeader({ eyebrow, title, description, as: Heading = 'h1' }: 
       <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">{eyebrow}</p>
       <Heading className="mt-3 font-display text-3xl font-semibold text-brand-deep sm:text-4xl">{title}</Heading>
       {description ? (
-        <p className="mt-4 max-w-3xl text-lg leading-8 text-brand-ink/80">{description}</p>
+        <p className="mt-4 text-lg leading-8 text-brand-ink/80">{description}</p>
       ) : null}
     </section>
   );

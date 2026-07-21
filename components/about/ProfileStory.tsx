@@ -12,9 +12,9 @@ export function ProfileStory({
   bulletPoints = formationStory.bulletPoints,
 }: ProfileStoryProps) {
   return (
-    <section className="page-section flex flex-col gap-10 backdrop-blur">
+    <section className="page-section flex flex-col gap-10">
       <h2 className="font-display text-2xl font-semibold text-brand-deep">{title}</h2>
-      <p className="text-base leading-8 text-brand-ink/80">{text}</p>
+      <p className="text-base leading-7 text-brand-ink/80">{text}</p>
       <ul className="space-y-3 text-sm leading-7 text-brand-ink/80">
         {bulletPoints.map((item) => (
           <li key={item} className="flex items-start gap-2">

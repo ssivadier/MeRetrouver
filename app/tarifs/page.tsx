@@ -6,8 +6,7 @@ import { BookingButton } from '@/components/ui/BookingButton';
 import { pricingBenefits, pricingModalities } from '@/content/pricing';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
-
-const cardAccents = ['border-t-brand-gold', 'border-t-brand-burgundy', 'border-t-brand-emerald'];
+import { cardAccents } from '@/lib/design-tokens';
 
 export const metadata = createPageMetadata({
   title: 'Tarifs',
@@ -21,7 +20,7 @@ export default function TarifsPage() {
   return (
     <PageShell>
       <Reveal>
-        <section className="page-section flex flex-col items-center gap-8 text-center backdrop-blur">
+        <section className="page-section flex flex-col items-center gap-8 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
             Tarif transparent
           </p>
@@ -39,7 +38,7 @@ export default function TarifsPage() {
       </Reveal>
 
       <Reveal delay={80}>
-        <section className="mt-8 page-section flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
+        <section className="page-section flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
           <div className="flex-1 space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               Remboursement possible
@@ -56,7 +55,7 @@ export default function TarifsPage() {
             <ul className="space-y-3 text-base leading-7 text-brand-ink/80">
               {pricingModalities.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-emerald" />
+                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-emerald" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -66,7 +65,7 @@ export default function TarifsPage() {
       </Reveal>
 
       <Reveal delay={150}>
-        <section className="page-section flex flex-col gap-10 backdrop-blur">
+        <section className="page-section flex flex-col gap-10">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-deep">
             Ce que comprend chaque séance
           </p>
@@ -83,7 +82,7 @@ export default function TarifsPage() {
 
 
       <Reveal delay={200}>
-        <section className="mt-8 page-section flex flex-col items-center gap-6 text-center">
+        <section className="page-section flex flex-col items-center gap-6 text-center">
           <h2 className="font-display text-2xl font-semibold text-brand-deep sm:text-3xl">
             Prêt à faire le premier pas&nbsp;?
           </h2>

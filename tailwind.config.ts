@@ -17,6 +17,8 @@ export default {
           paper: '#FAF6F0',
           mist: '#E8F0EC',
           ink: '#1F2A32',
+          warning: '#D97706',
+          danger: '#DC2626',
         },
       },
       fontFamily: {
@@ -42,8 +44,23 @@ export default {
         '.btn-cta-primary': {
           '@apply inline-flex items-center justify-center rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-emeraldHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald/40': {},
         },
+        '.btn-cta-deep': {
+          '@apply inline-flex items-center justify-center rounded-full bg-brand-deep px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-deepHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-deep/40': {},
+        },
+        '.btn-cta-secondary': {
+          '@apply inline-flex items-center justify-center rounded-full border border-brand-gold/30 bg-brand-gold/10 px-6 py-3 text-sm font-semibold text-brand-deep transition hover:bg-brand-gold/20': {},
+        },
         '.card-surface': {
           '@apply rounded-3xl border border-brand-mist bg-white/90 p-6 shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-emerald/30': {},
+        },
+        '.card-study': {
+          '@apply flex flex-col gap-4 rounded-3xl border border-brand-mist bg-white/90 p-6 transition-all duration-300': {},
+        },
+        '.card-study-highlight': {
+          '@apply card-study border-brand-emerald/40 bg-brand-emerald/5 shadow-soft': {},
+        },
+        '.card-study-highlight-gold': {
+          '@apply card-study border-brand-gold/40 bg-brand-gold/5 shadow-soft': {},
         },
         '.info-banner': {
           '@apply flex items-center gap-3 rounded-full border border-brand-mist bg-brand-paper px-4 py-3 text-sm text-brand-ink': {},
@@ -52,7 +69,7 @@ export default {
           '@apply mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16': {},
         },
         '.page-section': {
-          '@apply rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft transition-all duration-300 ease-out sm:p-10 lg:p-12': {},
+          '@apply rounded-[2rem] border border-brand-mist bg-white/90 p-8 shadow-soft backdrop-blur-sm transition-all duration-300 ease-out sm:p-10 lg:p-12': {},
         },
       });
     }),
