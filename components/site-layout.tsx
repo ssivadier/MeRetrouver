@@ -91,9 +91,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             )}
           </button>
 
-          <nav className="hidden items-center gap-4 text-sm font-medium text-brand-deep md:flex" aria-label="Navigation principale">
+          <nav className="hidden items-center gap-2 text-sm font-medium text-brand-deep md:flex lg:gap-3" aria-label="Navigation principale">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-lg px-3 py-2 transition hover:text-brand-emerald">
+              <Link key={link.href} href={link.href} className="whitespace-nowrap rounded-lg px-2 py-2 transition hover:text-brand-emerald lg:px-2.5">
                 {link.label}
               </Link>
             ))}
