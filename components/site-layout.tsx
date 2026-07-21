@@ -67,8 +67,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
               <img src="/Logo.png" alt="Me Retrouver" className="h-11 w-11 object-cover" />
             </div>
             <div>
-              <p className="font-display text-xl font-semibold text-brand-deep">{siteConfig.name}</p>
-              <p className="text-xs uppercase tracking-[0.3em] text-brand-emerald">{siteConfig.tagline}</p>
+              <p className="font-body text-[1.55rem] font-light uppercase tracking-[0.22em] leading-none text-brand-deep">{siteConfig.name}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.3em] text-brand-emerald">{siteConfig.tagline}</p>
             </div>
           </Link>
 
