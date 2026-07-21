@@ -157,6 +157,20 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         <div className="mx-auto mt-8 max-w-7xl rounded-2xl border border-white/10 bg-white/10 p-4 text-sm leading-7">
           <strong className="font-semibold">Sécurité et santé :</strong> ce site a un but d&apos;information et de mise en relation. Il ne remplace pas un avis médical, un suivi médical ou psychothérapeutique adapté à votre situation.
         </div>
+        <div className="mx-auto mt-6 max-w-7xl text-center">
+          <a
+            href="https://www.youtube.com/@meretrouver"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-white/40 transition hover:text-white/70"
+            aria-label="YouTube"
+          >
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            YouTube
+          </a>
+        </div>
       </footer>
     </div>
   );
