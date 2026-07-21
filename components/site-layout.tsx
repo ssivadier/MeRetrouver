@@ -93,7 +93,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
           <nav className="hidden items-center gap-4 text-sm font-medium text-brand-deep md:flex" aria-label="Navigation principale">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="transition hover:text-brand-emerald">
+              <Link key={link.href} href={link.href} className="rounded-lg px-3 py-2 transition hover:text-brand-emerald">
                 {link.label}
               </Link>
             ))}
@@ -114,7 +114,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           >
             <nav className="flex flex-col gap-3 text-sm font-medium text-brand-deep" aria-label="Navigation mobile">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="transition hover:text-brand-emerald" onClick={close}>
+                <Link key={link.href} href={link.href} className="rounded-lg px-3 py-2 transition hover:text-brand-emerald" onClick={close}>
                   {link.label}
                 </Link>
               ))}
