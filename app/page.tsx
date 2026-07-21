@@ -8,7 +8,6 @@ import { createBusinessSchema } from '@/content/site';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Accueil',
   description:
     'Vous êtes en mode survie ? Burnout, épuisement, perte de sommeil — un accompagnement structuré en hypnothérapie pour reconstruire vos fondations.',
   path: '/',

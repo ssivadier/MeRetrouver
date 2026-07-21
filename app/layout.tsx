@@ -24,8 +24,11 @@ const gaMeasurementId = process.env.NEXT_PUBLIC_GA_ID?.trim();
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.baseUrl),
   title: {
-    default: `${siteConfig.name} | Hypnothérapie & gestion du stress`,
+    default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
+  },
+  icons: {
+    icon: '/Logo.png',
   },
   description: siteConfig.description,
   alternates: {
