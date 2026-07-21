@@ -42,13 +42,13 @@ export default {
     plugin(function ({ addComponents }) {
       addComponents({
         '.btn-cta-primary': {
-          '@apply inline-flex items-center justify-center rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-emeraldHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald/40': {},
+          '@apply inline-flex items-center justify-center whitespace-nowrap rounded-full bg-brand-emerald px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-emeraldHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald/40': {},
         },
         '.btn-cta-deep': {
-          '@apply inline-flex items-center justify-center rounded-full bg-brand-deep px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-deepHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-deep/40': {},
+          '@apply inline-flex items-center justify-center whitespace-nowrap rounded-full bg-brand-deep px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 ease-out hover:bg-brand-deepHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-deep/40': {},
         },
         '.btn-cta-secondary': {
-          '@apply inline-flex items-center justify-center rounded-full border border-brand-gold/30 bg-brand-gold/10 px-6 py-3 text-sm font-semibold text-brand-deep transition hover:bg-brand-gold/20': {},
+          '@apply inline-flex items-center justify-center whitespace-nowrap rounded-full border border-brand-gold/30 bg-brand-gold/10 px-6 py-3 text-sm font-semibold text-brand-deep transition hover:bg-brand-gold/20': {},
         },
         '.card-surface': {
           '@apply rounded-3xl border border-brand-mist bg-white/90 p-6 shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-emerald/30': {},
