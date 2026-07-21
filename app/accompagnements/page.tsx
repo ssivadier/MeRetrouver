@@ -20,8 +20,8 @@ export default function AccompagnementsPage() {
       <Reveal>
         <PageHeader
           eyebrow="Mes accompagnements"
-          title="Un accompagnement sur mesure pour mieux vivre avec les difficultés liées au stress et à l&apos;émotion"
-          description="Chaque accompagnement est pensé pour être adapté à la personne, à son contexte et à ses besoins, dans un cadre rassurant et respectueux."
+          title="Accompagnements"
+          description="Chaque accompagnement s'adapte à votre histoire et à vos besoins, dans un espace d'écoute sans jugement où vous pouvez avancer sans pression. Vous n'avez rien à justifier, rien à prouver."
         />
       </Reveal>
       {services.map((service, i) => (

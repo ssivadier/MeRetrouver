@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export function BookingButton({ className = '' }: { className?: string }) {
+export function BookingButton({ className = '', onClick }: { className?: string; onClick?: () => void }) {
   const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
   const href = bookingUrl ? bookingUrl : fallbackMailto;
   const target = bookingUrl ? '_blank' : undefined;
@@ -40,10 +40,10 @@ export function BookingButton({ className = '' }: { className?: string }) {
       href={href}
       target={target}
       rel={rel}
-      onClick={handleClick}
+      onClick={() => { handleClick(); onClick?.(); }}
       className={`btn-cta-primary ${className}`.trim()}
     >
-      {bookingUrl ? 'Prendre RDV' : 'Prendre RDV (mailto temporaire)'}
+      {bookingUrl ? 'Prendre RDV' : 'Nous contacter'}
     </Link>
   );
 }

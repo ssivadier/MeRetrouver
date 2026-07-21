@@ -17,8 +17,8 @@ const labels = ['Jamais', 'Rarement', 'Parfois', 'Souvent', 'Très souvent'];
 const levels = [
   { min: 0, max: 6, label: 'stress faible', color: 'text-brand-emerald', bg: 'bg-brand-emerald', description: 'Vous semblez plutôt serein(e) en ce moment.' },
   { min: 7, max: 13, label: 'stress modéré', color: 'text-brand-gold', bg: 'bg-brand-gold', description: 'Quelques tensions à surveiller, pensez à des pauses régulières.' },
-  { min: 14, max: 19, label: 'stress élevé', color: 'text-orange-500', bg: 'bg-orange-500', description: 'Il serait utile de mettre en place des stratégies de gestion du stress (sommeil, activité physique, relaxation).' },
-  { min: 20, max: 24, label: 'stress très élevé', color: 'text-red-500', bg: 'bg-red-500', description: 'Un accompagnement (médecin traitant, psychologue) pourrait vraiment vous aider à souffler.' },
+  { min: 14, max: 19, label: 'stress élevé', color: 'text-brand-warning', bg: 'bg-brand-warning', description: 'Il serait utile de mettre en place des stratégies de gestion du stress (sommeil, activité physique, relaxation).' },
+  { min: 20, max: 24, label: 'stress très élevé', color: 'text-brand-danger', bg: 'bg-brand-danger', description: 'Un accompagnement (médecin traitant, psychologue) pourrait vraiment vous aider à souffler.' },
 ];
 
 export function StressTest() {
@@ -65,20 +65,23 @@ export function StressTest() {
 
       <div className="space-y-6">
         {questions.map((question, qIndex) => (
-          <div
+          <fieldset
             key={qIndex}
             className="rounded-2xl border border-brand-mist bg-white/90 p-5 shadow-soft transition-all"
           >
-            <p className="text-base font-medium text-brand-deep">
+            <legend className="text-base font-medium text-brand-deep">
               <span className="mr-2 text-sm font-semibold text-brand-emerald">
                 {qIndex + 1}.
               </span>
               {question}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
+            </legend>
+            <div className="mt-4 flex flex-wrap gap-2" role="radiogroup" aria-label={question}>
               {labels.map((label, vIndex) => (
                 <button
                   key={vIndex}
+                  type="button"
+                  role="radio"
+                  aria-checked={answers[qIndex] === vIndex}
                   onClick={() => handleSelect(qIndex, vIndex)}
                   disabled={submitted}
                   className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
@@ -91,7 +94,7 @@ export function StressTest() {
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
         ))}
       </div>
 
@@ -117,7 +120,14 @@ export function StressTest() {
             <p className={`text-lg font-semibold ${level.color}`}>{level.label}</p>
           </div>
 
-          <div className="relative h-4 w-full overflow-hidden rounded-full bg-brand-mist">
+          <div
+            className="relative h-4 w-full overflow-hidden rounded-full bg-brand-mist"
+            role="progressbar"
+            aria-valuenow={total}
+            aria-valuemin={0}
+            aria-valuemax={24}
+            aria-label={`Score de stress : ${total} sur 24`}
+          >
             <div
               className={`absolute left-0 top-0 h-full rounded-full transition-all duration-700 ${level.bg}`}
               style={{ width: `${progress}%` }}
@@ -134,7 +144,7 @@ export function StressTest() {
 
           <div className="flex flex-wrap gap-4">
             <BookingButton />
-            <button onClick={handleReset} className="btn-cta-primary !bg-brand-deep hover:!bg-brand-deepHover">
+            <button onClick={handleReset} className="btn-cta-deep">
               Refaire le test
             </button>
           </div>

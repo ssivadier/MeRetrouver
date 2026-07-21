@@ -23,11 +23,7 @@ export function BarriosStudy() {
           return (
             <div
               key={therapy.name}
-              className={`flex flex-col gap-4 rounded-3xl border p-6 transition-all duration-300 ${
-                isHypnosis
-                  ? 'border-brand-emerald/40 bg-brand-emerald/5 shadow-soft'
-                  : 'border-brand-mist bg-white/90'
-              }`}
+              className={isHypnosis ? 'card-study-highlight' : 'card-study'}
             >
               <div>
                 <p

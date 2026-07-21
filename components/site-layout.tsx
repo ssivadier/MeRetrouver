@@ -53,12 +53,18 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-brand-paper text-brand-ink">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand-deep focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+      >
+        Aller au contenu principal
+      </a>
       <div className={`bg-image ${bgLoaded ? 'bg-image-loaded' : ''}`} />
       <header className="sticky top-0 z-50 border-b border-brand-mist/80 bg-brand-paper/70 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-brand-mist bg-white shadow-soft">
-              <img src="/Logo.png" alt="" className="h-11 w-11 object-cover" />
+              <img src="/Logo.png" alt="Me Retrouver" className="h-11 w-11 object-cover" />
             </div>
             <div>
               <p className="font-display text-xl font-semibold text-brand-deep">{siteConfig.name}</p>
@@ -113,16 +119,16 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <div className="mt-4 inline-flex" onClick={close}>
-              <BookingButton />
+            <div className="mt-4 inline-flex">
+              <BookingButton onClick={close} />
             </div>
           </div>
         )}
       </header>
 
-      <main className="relative z-10"><PageTransition>{children}</PageTransition></main>
+      <main id="main-content" className="relative z-10"><PageTransition>{children}</PageTransition></main>
 
-      <footer className="relative z-10 border-t border-brand-mist bg-brand-deep/90 backdrop-blur-sm px-6 py-10 text-sm text-white/90">
+      <footer className="relative z-10 border-t border-brand-mist bg-brand-deep/90 backdrop-blur-sm px-4 py-10 text-sm text-white/90 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md space-y-2">
             <p className="font-display text-2xl text-white">{siteConfig.name}</p>

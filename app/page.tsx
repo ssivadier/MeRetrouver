@@ -6,6 +6,7 @@ import { StructuredData } from '@/components/seo/JsonLd';
 import { homePainPoints, homeOutcomes } from '@/content/home';
 import { createBusinessSchema } from '@/content/site';
 import { createPageMetadata } from '@/lib/seo';
+import { cardAccents } from '@/lib/design-tokens';
 
 export const metadata = createPageMetadata({
   description:
@@ -15,18 +16,16 @@ export const metadata = createPageMetadata({
 
 const homeSchema = createBusinessSchema({ includeLocalBusiness: true });
 
-const cardAccents = ['border-t-brand-gold', 'border-t-brand-burgundy', 'border-t-brand-emerald'];
-
 export default function HomePage() {
   return (
     <PageShell>
       <Reveal>
-        <section className="page-section flex flex-col gap-10 backdrop-blur">
+        <section className="page-section flex flex-col gap-10">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               quand le stress devient votre quotidien, il finit par prendre le contrôle.
             </p>
-            <p className="text-base leading-8 text-brand-ink/80">
+            <p className="text-base leading-7 text-brand-ink/80">
               Vous sentez des tensions dans votre corps, votre coeur qui s&apos;emballe, votre sommeil est instable, des reflux acides. Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>.
               <br /><br />
               Malgré tous vos efforts, votre humeur et votre comportement ont changé. Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, mais vous ne savez plus comment faire.
@@ -49,10 +48,7 @@ export default function HomePage() {
 
           <div className="flex flex-wrap gap-4">
             <BookingButton />
-            <Link
-              href="/test-stress"
-              className="rounded-full border border-brand-gold/30 bg-brand-gold/10 px-6 py-3 text-sm font-semibold text-brand-deep transition hover:bg-brand-gold/20"
-            >
+            <Link href="/test-stress" className="btn-cta-secondary">
               Quel mon niveau de stress ?
             </Link>
           </div>
@@ -60,7 +56,7 @@ export default function HomePage() {
       </Reveal>
 
       <Reveal delay={100}>
-        <section className="page-section flex flex-col gap-10 backdrop-blur">
+        <section className="page-section flex flex-col gap-10">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               En quoi nous pouvons vous aider ?
@@ -85,7 +81,7 @@ export default function HomePage() {
       </Reveal>
 
       <Reveal delay={150}>
-        <section className="mt-8 page-section flex flex-col items-center gap-6 text-center">
+        <section className="page-section flex flex-col items-center gap-6 text-center">
           <h2 className="font-display text-2xl font-semibold text-brand-deep">
             Vous méritez de ne plus subir, mais de vous retrouver.
           </h2>
