@@ -26,7 +26,7 @@ export const homePainPoints: HomePainPoint[] = [
 export const homeOutcomes: HomeOutcome[] = [
   {
     title: 'Une méthode scientifique',
-    description: 'Dans la section \'pratiques\' vous avez accès à un résumé des résultats études scientifiques pour chaque pratique, en toute transparence et honnèteté.',
+    description: 'Chaque pratique est présentée avec les résultats d\'études scientifiques vérifiables, en toute transparence.',
   },
   {
     title: 'Un travail sur la cause',
@@ -34,6 +34,6 @@ export const homeOutcomes: HomeOutcome[] = [
   },
   {
     title: 'Une méthode structurée dans le temps',
-    description: 'Entre 5 à 8 séances pour vous sentir mieux et avoir les clefs pour continuer sainement.',
+    description: 'Entre 5 et 8 séances pour vous sentir mieux et avoir les clés pour continuer sainement.',
   },
 ];

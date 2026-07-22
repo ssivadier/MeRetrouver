@@ -28,7 +28,7 @@ export default function HomePage() {
               quand le stress devient votre quotidien, il finit par prendre le contrôle.
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Vous sentez des tensions dans votre corps, votre coeur qui s&apos;emballe, votre sommeil est instable, des reflux acides. Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>.
+              Vous sentez des tensions dans votre corps, votre cœur qui s&apos;emballe, votre sommeil est instable, des reflux acides. Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>.
               <br /><br />
               Malgré tous vos efforts, votre humeur et votre comportement ont changé. Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, mais vous ne savez plus comment faire.
             </p>
@@ -36,7 +36,7 @@ export default function HomePage() {
 
           <div className="space-y-4">
             <p className="font-display text-2xl font-semibold text-brand-deep">
-              Reconnaitre 3 formes de stress
+              Reconnaître 3 formes de stress
             </p>
             <div className="grid gap-4 md:grid-cols-3">
               {homePainPoints.map((item, i) => (
@@ -64,9 +64,9 @@ export default function HomePage() {
               En quoi nous pouvons vous aider ?
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Notre approche en hypnothérapie à Pessac n&apos;est pas sur les symptomes, comme le sont les médicaments, mais sur <span className="highlight-gold">la cause du stress</span>.
+              Notre approche en hypnothérapie à Pessac n&apos;est pas sur les symptômes, comme le sont les médicaments, mais sur <span className="highlight-gold">la cause du stress</span>.
               <br /><br />
-              La cause de ce stress peut revetir plusieurs formes, mais sa conséquence est un déséquilibre entre le systeme sympathique et parasympathique qui induit une réaction forte. C&apos;est utile et naturel. Lorsque le danger est réel (un tigre en face de vous par exemple), cela vous protège. Mais dans nos vies sur-stimulées, ou suite à un traumatisme, ce déséquilibre tend à ne pas revenir à la normale.
+              La cause de ce stress peut revêtir plusieurs formes, mais sa conséquence est un déséquilibre entre le système sympathique et parasympathique qui induit une réaction forte. C&apos;est utile et naturel. Lorsque le danger est réel (un tigre en face de vous par exemple), cela vous protège. Mais dans nos vies sur-stimulées, ou suite à un traumatisme, ce déséquilibre tend à ne pas revenir à la normale.
               <br /><br />
               Par ailleurs, nous n&apos;utilisons que des pratiques pour lesquelles il y a eu des études scientifiques et dont <span className="highlight-gold">l&apos;efficacité a été démontrée</span>. Pas d&apos;ésotérisme ou de croyances.
             </p>
@@ -91,6 +91,9 @@ export default function HomePage() {
             Une première séance pour faire le point, sans engagement. Vous verrez si cette approche peut vous aider à retrouver un rythme qui vous ressemble.
           </p>
           <BookingButton />
+          <p className="text-xs leading-5 text-brand-ink/50">
+            Cet accompagnement ne se substitue pas à un suivi médical ou psychologique si nécessaire.
+          </p>
         </section>
       </Reveal>
 

@@ -10,7 +10,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Témoignages hypnothérapie Pessac',
   description:
-    'Retours d\u2019expériences sur l\u2019accompagnement en hypnothérapie à Pessac — stress, burnout et équilibre émotionnel.',
+    'Témoignages d\'accompagnements en hypnothérapie à Pessac — stress, burnout et retrouver son équilibre.',
   path: '/temoignages',
 });
 

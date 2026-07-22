@@ -14,7 +14,7 @@ export const metadata = createPageMetadata({
   path: '/contact',
 });
 
-const contactSchema = createBusinessSchema({ sameAs: ['https://www.instagram.com/'] });
+const contactSchema = createBusinessSchema();
 
 export default function ContactPage() {
   return (

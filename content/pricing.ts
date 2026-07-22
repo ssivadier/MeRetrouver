@@ -18,7 +18,7 @@ export const pricingBenefits: PricingBenefit[] = [
   {
     icon: '○',
     title: 'Adapté à votre rythme',
-    description: 'Pas de protocole rigidement figé. L\'accompagnement s\'ajuste à vous, à votre.avancement et à vos besoins.',
+    description: 'Pas de protocole rigidement figé. L\'accompagnement s\'ajuste à vous, à votre avancement et à vos besoins.',
   },
 ];
 

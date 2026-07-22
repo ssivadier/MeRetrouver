@@ -142,6 +142,11 @@ export function StressTest() {
 
           <p className="text-base leading-7 text-brand-ink/80">{level.description}</p>
 
+          <p className="text-xs leading-5 text-brand-ink/50">
+            Ce test est un outil d&apos;auto-évaluation indicatif. Il ne constitue en aucun cas un diagnostic médical.
+            En cas de doute, consultez votre médecin traitant.
+          </p>
+
           <div className="flex flex-wrap gap-4">
             <BookingButton />
             <button onClick={handleReset} className="btn-cta-deep">
