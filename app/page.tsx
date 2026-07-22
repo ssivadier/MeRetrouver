@@ -9,8 +9,9 @@ import { createPageMetadata } from '@/lib/seo';
 import { cardAccents } from '@/lib/design-tokens';
 
 export const metadata = createPageMetadata({
+  title: 'Hypnothérapie Pessac — Stress, burnout, phobies',
   description:
-    'Vous êtes en mode survie ? Burnout, épuisement, perte de sommeil — un accompagnement structuré en hypnothérapie pour reconstruire vos fondations.',
+    'Accompagnement en hypnothérapie à Pessac et Bordeaux. Burnout, stress, phobies — une méthode structurée pour reconstruire vos fondations.',
   path: '/',
 });
 
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Reveal>
         <section className="page-section flex flex-col gap-10">
           <div className="space-y-6">
+            <h1 className="sr-only">Hypnothérapie à Pessac — Accompagnement stress, burnout, phobies</h1>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               quand le stress devient votre quotidien, il finit par prendre le contrôle.
             </p>
@@ -49,7 +51,7 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-4">
             <BookingButton />
             <Link href="/test-stress" className="btn-cta-secondary">
-              Quel mon niveau de stress ?
+              Estimer mon niveau de stress
             </Link>
           </div>
         </section>
@@ -62,7 +64,7 @@ export default function HomePage() {
               En quoi nous pouvons vous aider ?
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Notre approche n&apos;est pas sur les symptomes, comme le sont les médicaments, mais sur <span className="highlight-gold">la cause du stress</span>.
+              Notre approche en hypnothérapie à Pessac n&apos;est pas sur les symptomes, comme le sont les médicaments, mais sur <span className="highlight-gold">la cause du stress</span>.
               <br /><br />
               La cause de ce stress peut revetir plusieurs formes, mais sa conséquence est un déséquilibre entre le systeme sympathique et parasympathique qui induit une réaction forte. C&apos;est utile et naturel. Lorsque le danger est réel (un tigre en face de vous par exemple), cela vous protège. Mais dans nos vies sur-stimulées, ou suite à un traumatisme, ce déséquilibre tend à ne pas revenir à la normale.
               <br /><br />

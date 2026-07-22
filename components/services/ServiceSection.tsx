@@ -22,7 +22,7 @@ export function ServiceSection({ title, intro, signs, approach }: ServiceSection
           </ul>
         </div>
         <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Quelques chiffres post-burnout</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">En quelques chiffres</h3>
           <ul className="mt-3 space-y-2 text-sm leading-7 text-brand-ink/80">
             {approach.map((item) => (
               <li key={item} className="flex items-start gap-2">

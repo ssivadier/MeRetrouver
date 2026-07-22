@@ -9,16 +9,16 @@ export const services: Service[] = [
   {
     title: 'Stress & burnout',
     intro:
-      'Cet accompagnement peut aider à mieux vivre avec un stress de longue durée, une fatigue mentale, un sentiment d’épuisement ou un besoin de retrouver un rythme plus apaisé.',
+      'Je vous aide à détecter les cycles de tension/compensation. Nous travaillons ensemble pour identifier les causes physiques, cognitives puis émotionnelles. Je vous accompagne pour retrouver une détente et vous donner les outils pour réduire l\'impact de ces tensions dans votre quotidien.',
     signs: [
       'Surcharge mentale ou fatigue persistante',
-      'Difficulté à décrocher ou à retrouver de l’énergie',
-      'Ressentis de tension, d’irritabilité ou de saturation',
+      'Difficulté à décrocher ou à retrouver de l\’énergie',
+      'Ressentis de tension, d\’irritabilité ou de saturation',
     ],
     approach: [
-      'Un temps d’écoute pour identifier les tensions actuelles',
-      'Des exercices d’ancrage et de détente adaptés à la situation',
-      'Un accompagnement orienté vers l’aide à mieux vivre avec le quotidien',
+      '30 à 40 % des personnes ayant vécu un burnout font une rechute dans les 2 à 3 ans',
+      '50 % rapportent des symptômes résiduels (fatigue, cycles, hypersensibilité au stress) pendant 12 à 24 mois',
+      '10 à 15 % vivent une rechute sévère si les conditions de travail ou de vie restent identiques à celles du burnout initial',
     ],
   },
   {
@@ -31,9 +31,9 @@ export const services: Service[] = [
       'État d’alerte important avant une situation redoutée',
     ],
     approach: [
-      'Une approche progressive et rassurante',
-      'Un travail sur la perception de la peur et des mécanismes de maintien',
-      'Un accompagnement centré sur l’aide à mieux vivre avec la situation',
+      '12,1 % des adultes présentent une phobie spécifique',
+      '2,5× plus de risque après un traumatisme dans l\’enfance',
+      '70 % des personnes traitées par hypnose rapportent une réduction significative de l\’anxiété liée à la phobie',
     ],
   },
   {
@@ -46,9 +46,9 @@ export const services: Service[] = [
       'Difficultés à retrouver un sentiment de calme ou de sécurité',
     ],
     approach: [
-      'Un cadre attentif, stable et respectueux du rythme',
-      'Un accompagnement visant à aider à mieux vivre avec les souvenirs et les émotions',
-      'Un soutien pour retrouver des repères et une meilleure présence au quotidien',
+      'Les personnes ayant vécu un trauma ont 2 à 3× plus de risque de burnout',
+      '60 % des personnes traumatisées présentent une hyper‑vigilance',
+      '40 % développent des comportements de régulation rapide (nourriture, addictions, isolement, sexualité compulsive)',
     ],
   },
 ];

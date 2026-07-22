@@ -8,9 +8,9 @@ import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Témoignages',
+  title: 'Témoignages hypnothérapie Pessac',
   description:
-    'Retours d’expériences sur l’accompagnement proposé autour du stress, du burnout et de l’équilibre émotionnel.',
+    'Retours d\u2019expériences sur l\u2019accompagnement en hypnothérapie à Pessac — stress, burnout et équilibre émotionnel.',
   path: '/temoignages',
 });
 
@@ -20,8 +20,8 @@ export default function TestimonialsPage() {
       <Reveal>
         <PageHeader
           eyebrow="Témoignages"
-          title="Des retours de personnes accompagnées, à remplacer par des témoignages réels avec consentement écrit"
-          description="Cette grille est une version temporaire avec des données d\u2019exemple. Les témoignages réels seront intégrés ultérieurement, sous réserve d\u2019un consentement écrit et clair."
+          title="Témoignages de personnes accompagnées"
+          description="Des retours d'expérience sur l'accompagnement en hypnothérapie à Pessac."
         />
       </Reveal>
       <Reveal delay={100}>

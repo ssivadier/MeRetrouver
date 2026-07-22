@@ -23,6 +23,14 @@ export function createPageMetadata({ title, description, path }: PageMetadataOpt
       type: 'website',
       locale: 'fr_FR',
       siteName: siteConfig.name,
+      images: [
+        {
+          url: `${siteConfig.baseUrl}/og-default.png`,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
     },
   };
 }

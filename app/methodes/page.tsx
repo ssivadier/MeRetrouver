@@ -9,9 +9,9 @@ import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Pratiques',
+  title: 'Méthodes hypnothérapie — Études scientifiques',
   description:
-    'Études scientifiques sur l\u2019hypnose, la cohérence cardiaque et les rythmes binauraux.',
+    'Études scientifiques sur l\u2019hypnose, la cohérence cardiaque et les rythmes binauraux. Méthodes validées par la recherche.',
   path: '/methodes',
 });
 

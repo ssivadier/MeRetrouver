@@ -28,6 +28,14 @@ describe('createPageMetadata', () => {
       type: 'website',
       locale: 'fr_FR',
       siteName: 'Me Retrouver',
+      images: [
+        {
+          url: 'https://meretrouver.fr/og-default.png',
+          width: 1200,
+          height: 630,
+          alt: 'Me Retrouver',
+        },
+      ],
     });
   });
 });

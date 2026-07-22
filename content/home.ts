@@ -33,7 +33,7 @@ export const homeOutcomes: HomeOutcome[] = [
     description: 'Sans travail sur la cause, le mal risque de revenir.',
   },
   {
-    title: 'Une méthode bornée dans le temps',
+    title: 'Une méthode structurée dans le temps',
     description: 'Entre 5 à 8 séances pour vous sentir mieux et avoir les clefs pour continuer sainement.',
   },
 ];

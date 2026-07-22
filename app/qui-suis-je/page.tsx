@@ -10,9 +10,9 @@ import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Qui suis-je',
+  title: 'Hypnothérapeute Pessac — Sébastien Sivadier',
   description:
-    'Présentation de la pratique d’hypnothérapie et de l’accompagnement autour du stress, du burnout, des phobies et de la gestion émotionnelle à Pessac.',
+    'Sébastien Sivadier, hypnothérapeute à Pessac. Accompagnement pour le stress, le burnout, les phobies et la gestion émotionnelle.',
   path: '/qui-suis-je',
 });
 
