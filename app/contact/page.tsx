@@ -8,9 +8,9 @@ import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Contact',
+  title: 'Contact — Hypnothérapeute Pessac',
   description:
-    'Prendre rendez-vous pour un accompagnement en hypnothérapie et gestion du stress à Lyon / à distance.',
+    'Prendre rendez-vous pour un accompagnement en hypnothérapie et gestion du stress à Pessac et en visio.',
   path: '/contact',
 });
 

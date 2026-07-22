@@ -8,10 +8,38 @@ import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 import { cardAccents } from '@/lib/design-tokens';
 
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Séance d\'hypnothérapie',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Me Retrouver',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '33600 Pessac',
+      addressLocality: 'Pessac',
+      postalCode: '33600',
+      addressRegion: 'Gironde',
+      addressCountry: 'FR',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '70',
+    priceCurrency: 'EUR',
+    description: 'Séance d\'1 heure en cabinet, à domicile ou en visio',
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Pessac, Bordeaux et à distance',
+  },
+};
+
 export const metadata = createPageMetadata({
-  title: 'Tarifs',
+  title: 'Tarifs hypnothérapie Pessac — 70€ la séance',
   description:
-    'Séance d\'hypnothérapie à 70 €. Remboursement possible par certaines mutuelles. Séances en cabinet, à domicile ou en visio à Pessac.',
+    'Séance d\'hypnothérapie à 70 € à Pessac. Remboursement mutuelle possible. Séances en cabinet, à domicile ou en visio.',
   path: '/tarifs',
 });
 
@@ -25,6 +53,7 @@ export default function TarifsPage() {
             Tarif transparent
           </p>
           <div className="space-y-2">
+            <h1 className="sr-only">Tarifs hypnothérapie Pessac</h1>
             <p className="font-display text-6xl font-bold text-brand-deep sm:text-7xl">
               70&nbsp;&euro;
             </p>
@@ -94,6 +123,7 @@ export default function TarifsPage() {
       </Reveal>
 
       <StructuredData data={createBreadcrumbSchema('/tarifs')} />
+      <StructuredData data={pricingSchema} />
     </PageShell>
   );
 }

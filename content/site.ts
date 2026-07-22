@@ -50,6 +50,9 @@ export function createBusinessSchema(options?: { includeLocalBusiness?: boolean;
     telephone: siteConfig.phone,
     email: siteConfig.email,
     description: siteConfig.businessDescription,
+    image: `${siteConfig.baseUrl}/photo_profil.png`,
+    priceRange: '70€',
+    openingHours: 'Mo-Fr 09:00-18:00',
     areaServed: {
       '@type': 'Place',
       name: siteConfig.areaServed,
@@ -57,6 +60,11 @@ export function createBusinessSchema(options?: { includeLocalBusiness?: boolean;
     address: {
       '@type': 'PostalAddress',
       ...siteConfig.address,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 44.8048,
+      longitude: -0.6352,
     },
   };
 

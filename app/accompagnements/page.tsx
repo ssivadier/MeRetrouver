@@ -8,9 +8,9 @@ import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Mes accompagnements',
+  title: 'Accompagnements — Stress, burnout, phobies à Pessac',
   description:
-    'Accompagnement professionnel pour le stress, le burnout, les phobies et les troubles liés au stress post-traumatique.',
+    'Accompagnement professionnel en hypnothérapie pour le stress, le burnout, les phobies et le stress post-traumatique à Pessac et Bordeaux.',
   path: '/accompagnements',
 });
 
@@ -20,7 +20,7 @@ export default function AccompagnementsPage() {
       <Reveal>
         <PageHeader
           eyebrow="Mes accompagnements"
-          title="Accompagnements"
+          title="Accompagnements en hypnothérapie à Pessac"
           description="Chaque accompagnement s'adapte à votre histoire et à vos besoins, dans un espace d'écoute sans jugement où vous pouvez avancer sans pression. Vous n'avez rien à justifier, rien à prouver."
         />
       </Reveal>
