@@ -2,7 +2,7 @@ import { binauralStudy, binauralStudySource, binauralKeyFigures } from '@/conten
 
 export function BinauralStudy() {
   return (
-    <section className="page-section">
+    <section id="binauraux" className="page-section">
       <div className="space-y-4">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
           Étude comparative

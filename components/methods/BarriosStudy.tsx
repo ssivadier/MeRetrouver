@@ -2,7 +2,7 @@ import { barriosStudy, barriosStudySource } from '@/content/study';
 
 export function BarriosStudy() {
   return (
-    <section className="page-section">
+    <section id="hypnose" className="page-section">
       <div className="space-y-4">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
           Étude comparative

@@ -2,7 +2,7 @@ import { coherenceStudy, coherenceStudySource, coherenceKeyFigures } from '@/con
 
 export function CoherenceStudy() {
   return (
-    <section className="page-section">
+    <section id="coherence" className="page-section">
       <div className="space-y-4">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
           Étude comparative

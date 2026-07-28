@@ -1,8 +1,16 @@
+export type ServiceMethod = {
+  name: string;
+  evidence: 'preuve solide' | 'preuve plus limitée';
+  keyResult: string;
+  studyLink?: string;
+};
+
 export type Service = {
   title: string;
   intro: string;
   signs: string[];
   approach: string[];
+  methods: ServiceMethod[];
 };
 
 export const services: Service[] = [
@@ -20,6 +28,26 @@ export const services: Service[] = [
       '50 % rapportent des symptômes résiduels (fatigue, cycles, hypersensibilité au stress) pendant 12 à 24 mois',
       '10 à 15 % vivent une rechute sévère si les conditions de travail ou de vie restent identiques à celles du burnout initial',
     ],
+    methods: [
+      {
+        name: 'Hypnose',
+        evidence: 'preuve solide',
+        keyResult: 'Réduction mesurée du stress perçu et des tensions (g = 0.96, Barrios et al.)',
+        studyLink: '/methodes#hypnose',
+      },
+      {
+        name: 'Cohérence cardiaque',
+        evidence: 'preuve solide',
+        keyResult: 'Amélioration de la variabilité cardiaque et régulation du système nerveux (g = 0.83)',
+        studyLink: '/methodes#coherence',
+      },
+      {
+        name: 'Rythmes binauraux',
+        evidence: 'preuve plus limitée',
+        keyResult: 'Complément de confort sensoriel pendant les séances (g = 0.45)',
+        studyLink: '/methodes#binauraux',
+      },
+    ],
   },
   {
     title: 'Phobies',
@@ -27,13 +55,21 @@ export const services: Service[] = [
       'Cet accompagnement peut apporter une aide à mieux vivre avec certaines peurs intenses, des réactions disproportionnées ou des situations qui deviennent difficiles à affronter.',
     signs: [
       'Peurs spécifiques liées à certaines situations ou objets',
-      'Évitement de lieux ou d’activités',
-      'État d’alerte important avant une situation redoutée',
+      'Évitement de lieux ou d\’activités',
+      'État d\’alerte important avant une situation redoutée',
     ],
     approach: [
       '12,1 % des adultes présentent une phobie spécifique',
       '2,5× plus de risque après un traumatisme dans l\’enfance',
       '70 % des personnes traitées par hypnose rapportent une réduction significative de l\’anxiété liée à la phobie',
+    ],
+    methods: [
+      {
+        name: 'Hypnose',
+        evidence: 'preuve solide',
+        keyResult: '70 % de réduction significative de l\’anxiété liée à la phobie',
+        studyLink: '/methodes#hypnose',
+      },
     ],
   },
   {
@@ -49,6 +85,20 @@ export const services: Service[] = [
       'Les personnes ayant vécu un trauma ont 2 à 3× plus de risque de burnout',
       '60 % des personnes traumatisées présentent une hyper‑vigilance',
       '40 % développent des comportements de régulation rapide (nourriture, addictions, isolement, sexualité compulsive)',
+    ],
+    methods: [
+      {
+        name: 'Hypnose',
+        evidence: 'preuve solide',
+        keyResult: 'Réduction des revives et des réactions de sursaut (Barrios et al.)',
+        studyLink: '/methodes#hypnose',
+      },
+      {
+        name: 'Cohérence cardiaque',
+        evidence: 'preuve solide',
+        keyResult: 'Aide à la régulation du système nerveux et à la réduction de l\’hyper‑vigilance',
+        studyLink: '/methodes#coherence',
+      },
     ],
   },
 ];
