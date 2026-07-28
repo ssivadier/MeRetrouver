@@ -1,9 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { siteConfig } from '@/content/site';
 
-const fallbackMailto = `mailto:${siteConfig.email}`;
+const EMAIL_PARTS = ['contact', '@', 'meretrouver', '.', 'fr'];
 
 declare global {
   interface Window {
@@ -13,7 +12,8 @@ declare global {
 
 export function BookingButton({ className = '', onClick }: { className?: string; onClick?: () => void }) {
   const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
-  const href = bookingUrl ? bookingUrl : fallbackMailto;
+  const email = EMAIL_PARTS.join('');
+  const href = bookingUrl ? bookingUrl : `mailto:${email}`;
   const target = bookingUrl ? '_blank' : undefined;
   const rel = bookingUrl ? 'noopener noreferrer' : undefined;
 

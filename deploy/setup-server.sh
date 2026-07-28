@@ -15,23 +15,54 @@ echo "  Me Retrouver — Installation serveur"
 echo "========================================="
 
 # ── 1. Mise à jour système ──────────────────────────────────────────────────
-echo "[1/8] Mise à jour du système..."
+echo "[1/10] Mise à jour du système..."
 apt-get update -qq
 apt-get upgrade -y -qq
 
 # ── 2. Utilisateur deploy ───────────────────────────────────────────────────
-echo "[2/8] Création de l'utilisateur deploy..."
+echo "[2/10] Création de l'utilisateur deploy..."
 if ! id "$DEPLOY_USER" &>/dev/null; then
   adduser --disabled-password --gecos "" "$DEPLOY_USER"
   usermod -aG sudo "$DEPLOY_USER"
-  # Clé SSH root → deploy (optionnel, commenté par défaut)
-  # mkdir -p /home/$DEPLOY_USER/.ssh
-  # cp /root/.ssh/authorized_keys /home/$DEPLOY_USER/.ssh/
-  # chown -R $DEPLOY_USER:$DEPLOY_USER /home/$DEPLOY_USER/.ssh
 fi
 
-# ── 3. Node.js via NVM ─────────────────────────────────────────────────────
-echo "[3/8] Installation de Node.js $NODE_VERSION..."
+# ── 3. SSH durci ────────────────────────────────────────────────────────────
+echo "[3/10] Durcissement de la configuration SSH..."
+SSHD_CONFIG="/etc/ssh/sshd_config"
+cp "$SSHD_CONFIG" "$SSHD_CONFIG.bak"
+sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' "$SSHD_CONFIG"
+sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin prohibit-password/' "$SSHD_CONFIG"
+sed -i 's/^#\?MaxAuthTries.*/MaxAuthTries 3/' "$SSHD_CONFIG"
+sed -i 's/^#\?LoginGraceTime.*/LoginGraceTime 30/' "$SSHD_CONFIG"
+systemctl restart sshd
+
+# ── 4. Fail2ban ─────────────────────────────────────────────────────────────
+echo "[4/10] Installation de Fail2ban..."
+apt-get install -y -qq fail2ban
+cat > /etc/fail2ban/jail.local <<'FAIL2BAN'
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+bantime = 3600
+findtime = 600
+FAIL2BAN
+systemctl enable fail2ban
+systemctl restart fail2ban
+
+# ── 5. Mises à jour automatiques ────────────────────────────────────────────
+echo "[5/10] Configuration des mises à jour automatiques..."
+apt-get install -y -qq unattended-upgrades
+cat > /etc/apt/apt.conf.d/20auto-upgrades <<'UPGRADES'
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::AutocleanInterval "7";
+UPGRADES
+
+# ── 6. Node.js via NVM ─────────────────────────────────────────────────────
+echo "[6/10] Installation de Node.js $NODE_VERSION..."
 if ! su - "$DEPLOY_USER" -c "command -v nvm" &>/dev/null; then
   su - "$DEPLOY_USER" -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash"
 fi
@@ -39,31 +70,31 @@ su - "$DEPLOY_USER" -c "nvm install $NODE_VERSION"
 su - "$DEPLOY_USER" -c "nvm use $NODE_VERSION"
 su - "$DEPLOY_USER" -c "nvm alias default $NODE_VERSION"
 
-# ── 4. PM2 ──────────────────────────────────────────────────────────────────
-echo "[4/8] Installation de PM2..."
+# ── 7. PM2 ──────────────────────────────────────────────────────────────────
+echo "[7/10] Installation de PM2..."
 su - "$DEPLOY_USER" -c "npm install -g pm2"
 su - "$DEPLOY_USER" -c "pm2 startup systemd -u $DEPLOY_USER --hp /home/$DEPLOY_USER" | tail -1
 
-# ── 5. Nginx ────────────────────────────────────────────────────────────────
-echo "[5/8] Installation de Nginx..."
+# ── 8. Nginx ────────────────────────────────────────────────────────────────
+echo "[8/10] Installation de Nginx..."
 apt-get install -y -qq nginx
 systemctl enable nginx
 systemctl start nginx
 
-# ── 6. Certbot (Let's Encrypt) ──────────────────────────────────────────────
-echo "[6/8] Installation de Certbot..."
+# ── 9. Certbot (Let's Encrypt) ──────────────────────────────────────────────
+echo "[9/10] Installation de Certbot..."
 apt-get install -y -qq certbot python3-certbot-nginx
 
-# ── 7. Firewall ─────────────────────────────────────────────────────────────
-echo "[7/8] Configuration du firewall..."
+# ── 10. Firewall ────────────────────────────────────────────────────────────
+echo "[10/10] Configuration du firewall..."
 if command -v ufw &>/dev/null; then
   ufw allow OpenSSH
   ufw allow 'Nginx Full'
   ufw --force enable
 fi
 
-# ── 8. Dossier de l'application ─────────────────────────────────────────────
-echo "[8/8] Préparation du dossier /opt/me-retrouver..."
+# ── Dossier de l'application ────────────────────────────────────────────────
+echo "Préparation du dossier /opt/me-retrouver..."
 mkdir -p "$APP_DIR"
 chown "$DEPLOY_USER:$DEPLOY_USER" "$APP_DIR"
 
