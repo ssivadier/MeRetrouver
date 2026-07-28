@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@sentry/nextjs": "^10.65.0",
+    "gray-matter": "^4.0.3",
     "next": "^15.5.20",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

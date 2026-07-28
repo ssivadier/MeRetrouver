@@ -21,11 +21,11 @@ export const siteConfig = {
 export const navLinks = [
   { href: '/', label: 'Accueil' },
   { href: '/qui-suis-je', label: 'Qui suis-je' },
-  { href: '/accompagnements', label: 'Mes accompagnements' },
-  { href: '/methodes', label: 'Pratiques' },
+  { href: '/accompagnements', label: 'Accompagnements' },
   { href: '/temoignages', label: 'Témoignages' },
   { href: '/test-stress', label: 'Test de stress' },
   { href: '/tarifs', label: 'Tarifs' },
+  { href: '/blog', label: 'Blog' },
 ] as const;
 
 export const sitemapRoutes = [
@@ -36,6 +36,7 @@ export const sitemapRoutes = [
   '/temoignages',
   '/test-stress',
   '/tarifs',
+  '/blog',
   '/mentions-legales',
   '/politique-confidentialite',
   '/contact',
