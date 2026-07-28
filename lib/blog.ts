@@ -11,7 +11,14 @@ export type BlogPost = {
   description: string;
   published: boolean;
   content: string;
+  readingTime: string;
 };
+
+function estimateReadingTime(content: string): string {
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} min de lecture`;
+}
 
 export function getAllPosts(): BlogPost[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
@@ -30,6 +37,7 @@ export function getAllPosts(): BlogPost[] {
       description: data.description ?? '',
       published: data.published ?? false,
       content,
+      readingTime: estimateReadingTime(content),
     };
   });
 
@@ -54,5 +62,6 @@ export function getPostBySlug(slug: string): BlogPost | null {
     description: data.description ?? '',
     published: data.published ?? false,
     content,
+    readingTime: estimateReadingTime(content),
   };
 }

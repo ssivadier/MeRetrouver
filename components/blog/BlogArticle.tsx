@@ -1,18 +1,18 @@
-'use client';
-
 import Link from 'next/link';
 import { BookingButton } from '@/components/ui/BookingButton';
 
-export function BlogArticle({ post, children }: { post: { title: string; date: string; description: string }; children: React.ReactNode }) {
+export function BlogArticle({ post, children }: { post: { title: string; date: string; description: string; readingTime: string }; children: React.ReactNode }) {
   return (
     <article className="page-section flex flex-col gap-8">
       <header className="space-y-3">
         <Link href="/blog" className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald transition hover:text-brand-deep">
           ← Retour au blog
         </Link>
-        <p className="text-xs text-brand-ink/50">
-          {new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
-        </p>
+        <div className="flex items-center gap-3 text-xs text-brand-ink/50">
+          <time>{new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+          <span>·</span>
+          <span>{post.readingTime}</span>
+        </div>
         <h1 className="font-display text-3xl font-semibold text-brand-deep sm:text-4xl">
           {post.title}
         </h1>
