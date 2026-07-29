@@ -1,6 +1,7 @@
 import type { GNewsArticle } from './gnews';
 import type { TopicEntry } from './topics-log';
 import type { PubMedRef } from './pubmed';
+import { extractJSON } from './json-extract';
 
 // ── Types partagés ──────────────────────────────────────────
 
@@ -30,7 +31,7 @@ Critères de sélection (par ordre d'importance) :
 3. **Originalité** — le sujet n'a pas été traité dans la liste des sujets existants
 4. **Valeur ajoutée** — le sujet permet un article riche, nuancé, utile, pas un simple résumé d'actu
 
-Réponds UNIQUEMENT au format JSON :
+Réponds UNIQUEMENT au format JSON, sans texte avant ni après :
 {
   "title": "Titre provisoire de l'article (en français, accrocheur mais pas putaclic)",
   "angle": "Angle éditorial : comment aborder le sujet",
@@ -64,7 +65,7 @@ Règles strictes :
 - Reste dans le cadre de l'hypnothérapie et de la gestion du stress — pas de dérive ésotérique
 
 **Format de réponse** :
-Tu dois retourner UNIQUEMENT du JSON avec cette structure :
+Réponds UNIQUEMENT au format JSON, sans texte avant ni après :
 {
   "title": "Titre de l'article",
   "slug": "slug-auto-genere",
@@ -72,9 +73,36 @@ Tu dois retourner UNIQUEMENT du JSON avec cette structure :
   "body": "Contenu complet au format Markdown, avec le frontmatter YAML --- inclus"
 }`;
 
-const SYSTEM_SEARCH_TERMS = 'Tu dois retourner des termes de recherche PubMed (en anglais) pour trouver des études scientifiques pertinentes sur le sujet donné. Retourne UNIQUEMENT un tableau JSON de 1 à 3 chaînes de recherche.';
+const SYSTEM_SEARCH_TERMS = 'Tu dois retourner des termes de recherche PubMed (en anglais) pour trouver des études scientifiques pertinentes sur le sujet donné. Retourne UNIQUEMENT un tableau JSON de 1 à 3 chaînes de recherche, sans texte avant ni après.';
 
-// ── Provider OpenAI ─────────────────────────────────────────
+// ── Retry wrapper ───────────────────────────────────────────
+
+async function requestWithRetry(
+  label: string,
+  fn: () => Promise<string>,
+  maxRetries = 2,
+): Promise<string> {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      const text = await fn();
+      if (!text || !text.trim()) throw new Error('Réponse vide');
+      return text;
+    } catch (err) {
+      const isLast = attempt === maxRetries;
+      const msg = err instanceof Error ? err.message : String(err);
+
+      if (isLast) throw new Error(`${label} : ${msg}`);
+
+      const wait = (attempt + 1) * 2000;
+      console.warn(`  ⚠️  ${label} échouée (tentative ${attempt + 1}/${maxRetries + 1}) : ${msg.substring(0, 120)}`);
+      console.warn(`     Nouvel essai dans ${wait / 1000}s...`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+  throw new Error(`${label} : échec après ${maxRetries + 1} tentatives`);
+}
+
+// ── Provider OpenAI / compatible ────────────────────────────
 
 async function openAIJsonResponse(
   systemPrompt: string,
@@ -92,6 +120,8 @@ async function openAIJsonResponse(
 
   const completion = await client.chat.completions.create({
     model: process.env.AI_MODEL || 'gpt-4o',
+    temperature: 0,
+    max_tokens: 4096,
     messages: [
       { role: 'system', content: systemPrompt },
       { role: 'user', content: userPrompt },
@@ -100,7 +130,7 @@ async function openAIJsonResponse(
   });
 
   const text = completion.choices[0]?.message?.content;
-  if (!text) throw new Error('Réponse IA vide (OpenAI)');
+  if (!text) throw new Error('Réponse IA vide');
   return text;
 }
 
@@ -123,16 +153,18 @@ async function geminiJsonResponse(
     systemInstruction: systemPrompt,
     generationConfig: {
       responseMimeType: 'application/json',
+      temperature: 0,
+      maxOutputTokens: 4096,
     },
   });
 
   const result = await model.generateContent(userPrompt);
   const text = result.response.text();
-  if (!text) throw new Error('Réponse IA vide (Gemini)');
+  if (!text) throw new Error('Réponse IA vide');
   return text;
 }
 
-// ── Sélection du provider ───────────────────────────────────
+// ── Provider agnostique : raw text ──────────────────────────
 
 type AIProvider = 'openai' | 'gemini';
 
@@ -142,13 +174,13 @@ function getProvider(): AIProvider {
   return 'openai';
 }
 
-function jsonResponse(system: string, user: string): Promise<string> {
+function jsonRaw(system: string, user: string): Promise<string> {
   const provider = getProvider();
   if (provider === 'gemini') return geminiJsonResponse(system, user);
   return openAIJsonResponse(system, user);
 }
 
-// ── Fonctions exportées ─────────────────────────────────────
+// ── Fonctions exportées avec parsing robuste ────────────────
 
 export async function selectBestTopic(
   articles: GNewsArticle[],
@@ -160,12 +192,14 @@ export async function selectBestTopic(
     `[${i}] "${a.title}" — ${a.description ?? '(pas de description)'}`,
   ).join('\n');
 
-  const text = await jsonResponse(
-    SYSTEM_SELECTION,
-    `Voici les articles d'actualité disponibles :\n\n${articlesSummary}\n\nSujets déjà traités :\n${existingTitles || '(aucun)'}\n\nChoisis le meilleur sujet pour un article de blog à forte valeur ajoutée.`,
+  const text = await requestWithRetry('Sélection du sujet', () =>
+    jsonRaw(
+      SYSTEM_SELECTION,
+      `Voici les articles d'actualité disponibles :\n\n${articlesSummary}\n\nSujets déjà traités :\n${existingTitles || '(aucun)'}\n\nChoisis le meilleur sujet pour un article de blog à forte valeur ajoutée.`,
+    ),
   );
 
-  return JSON.parse(text) as SelectedTopic;
+  return extractJSON<SelectedTopic>(text);
 }
 
 export async function generateArticle(
@@ -183,9 +217,10 @@ export async function generateArticle(
 
   const today = new Date().toISOString().split('T')[0];
 
-  const text = await jsonResponse(
-    SYSTEM_GENERATION,
-    `Génère un article de blog pour Me Retrouver.
+  const text = await requestWithRetry('Génération de l\'article', () =>
+    jsonRaw(
+      SYSTEM_GENERATION,
+      `Génère un article de blog pour Me Retrouver.
 
 Sujet : "${topic.title}"
 Angle : "${topic.angle}"
@@ -202,19 +237,22 @@ N'oublie pas de :
 - Parler de l'accompagnement possible (sans être insistant)
 - Ajouter <BookingCTA /> à la fin
 - Ajouter un lien vers /accompagnements ou /methodes ou /test-stress dans la note de bas de page`,
+    ),
   );
 
-  return JSON.parse(text) as GeneratedArticle;
+  return extractJSON<GeneratedArticle>(text);
 }
 
 export async function getScientificSearchTerms(title: string, angle: string): Promise<string[]> {
-  const text = await jsonResponse(
-    SYSTEM_SEARCH_TERMS,
-    `Sujet : "${title}"\nAngle : "${angle}"\n\nQuels termes de recherche PubMed (en anglais) utiliser pour trouver des études scientifiques pertinentes ?`,
-  );
-
   try {
-    const parsed = JSON.parse(text);
+    const text = await requestWithRetry('Termes de recherche PubMed', () =>
+      jsonRaw(
+        SYSTEM_SEARCH_TERMS,
+        `Sujet : "${title}"\nAngle : "${angle}"\n\nQuels termes de recherche PubMed (en anglais) utiliser pour trouver des études scientifiques pertinentes ?`,
+      ),
+    );
+
+    const parsed = extractJSON<string[] | { terms: string[] }>(text);
     if (Array.isArray(parsed)) return parsed.slice(0, 3);
     if (parsed.terms && Array.isArray(parsed.terms)) return parsed.terms.slice(0, 3);
     return [];
