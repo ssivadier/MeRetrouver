@@ -1,17 +1,24 @@
-import OpenAI from 'openai';
 import type { GNewsArticle } from './gnews';
 import type { TopicEntry } from './topics-log';
 import type { PubMedRef } from './pubmed';
 
-function getClient(): OpenAI {
-  const apiKey = process.env.AI_API_KEY;
-  if (!apiKey) throw new Error('AI_API_KEY manquante dans .env.local');
+// ── Types partagés ──────────────────────────────────────────
 
-  return new OpenAI({
-    apiKey,
-    baseURL: process.env.AI_BASE_URL ?? undefined,
-  });
-}
+export type SelectedTopic = {
+  title: string;
+  angle: string;
+  reasoning: string;
+  sourceIndex: number | null;
+};
+
+export type GeneratedArticle = {
+  title: string;
+  slug: string;
+  description: string;
+  body: string;
+};
+
+// ── Prompts système ─────────────────────────────────────────
 
 const SYSTEM_SELECTION = `Tu es un éditeur de blog spécialisé dans la santé mentale, le stress et le bien-être.
 
@@ -65,49 +72,100 @@ Tu dois retourner UNIQUEMENT du JSON avec cette structure :
   "body": "Contenu complet au format Markdown, avec le frontmatter YAML --- inclus"
 }`;
 
-export type SelectedTopic = {
-  title: string;
-  angle: string;
-  reasoning: string;
-  sourceIndex: number | null;
-};
+const SYSTEM_SEARCH_TERMS = 'Tu dois retourner des termes de recherche PubMed (en anglais) pour trouver des études scientifiques pertinentes sur le sujet donné. Retourne UNIQUEMENT un tableau JSON de 1 à 3 chaînes de recherche.';
 
-export type GeneratedArticle = {
-  title: string;
-  slug: string;
-  description: string;
-  body: string;
-};
+// ── Provider OpenAI ─────────────────────────────────────────
+
+async function openAIJsonResponse(
+  systemPrompt: string,
+  userPrompt: string,
+): Promise<string> {
+  const { default: OpenAI } = await import('openai');
+
+  const apiKey = process.env.AI_API_KEY;
+  if (!apiKey) throw new Error('AI_API_KEY manquante dans .env.local');
+
+  const client = new OpenAI({
+    apiKey,
+    baseURL: process.env.AI_BASE_URL || undefined,
+  });
+
+  const completion = await client.chat.completions.create({
+    model: process.env.AI_MODEL || 'gpt-4o',
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userPrompt },
+    ],
+    response_format: { type: 'json_object' },
+  });
+
+  const text = completion.choices[0]?.message?.content;
+  if (!text) throw new Error('Réponse IA vide (OpenAI)');
+  return text;
+}
+
+// ── Provider Gemini ─────────────────────────────────────────
+
+async function geminiJsonResponse(
+  systemPrompt: string,
+  userPrompt: string,
+): Promise<string> {
+  const { GoogleGenerativeAI } = await import('@google/generative-ai');
+
+  const apiKey = process.env.AI_API_KEY;
+  if (!apiKey) throw new Error('AI_API_KEY manquante dans .env.local');
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const modelName = process.env.AI_MODEL || 'gemini-2.0-flash';
+
+  const model = genAI.getGenerativeModel({
+    model: modelName,
+    systemInstruction: systemPrompt,
+    generationConfig: {
+      responseMimeType: 'application/json',
+    },
+  });
+
+  const result = await model.generateContent(userPrompt);
+  const text = result.response.text();
+  if (!text) throw new Error('Réponse IA vide (Gemini)');
+  return text;
+}
+
+// ── Sélection du provider ───────────────────────────────────
+
+type AIProvider = 'openai' | 'gemini';
+
+function getProvider(): AIProvider {
+  const p = (process.env.AI_PROVIDER || 'openai').toLowerCase();
+  if (p === 'gemini') return 'gemini';
+  return 'openai';
+}
+
+function jsonResponse(system: string, user: string): Promise<string> {
+  const provider = getProvider();
+  if (provider === 'gemini') return geminiJsonResponse(system, user);
+  return openAIJsonResponse(system, user);
+}
+
+// ── Fonctions exportées ─────────────────────────────────────
 
 export async function selectBestTopic(
   articles: GNewsArticle[],
   existingTopics: TopicEntry[],
 ): Promise<SelectedTopic> {
-  const client = getClient();
-
   const existingTitles = existingTopics.map((t) => `- ${t.title}`).join('\n');
 
   const articlesSummary = articles.map((a, i) =>
     `[${i}] "${a.title}" — ${a.description ?? '(pas de description)'}`,
   ).join('\n');
 
-  const completion = await client.chat.completions.create({
-    model: process.env.AI_MODEL ?? 'gpt-4o',
-    messages: [
-      { role: 'system', content: SYSTEM_SELECTION },
-      {
-        role: 'user',
-        content: `Voici les articles d'actualité disponibles :\n\n${articlesSummary}\n\nSujets déjà traités :\n${existingTitles || '(aucun)'}\n\nChoisis le meilleur sujet pour un article de blog à forte valeur ajoutée.`,
-      },
-    ],
-    response_format: { type: 'json_object' },
-  });
+  const text = await jsonResponse(
+    SYSTEM_SELECTION,
+    `Voici les articles d'actualité disponibles :\n\n${articlesSummary}\n\nSujets déjà traités :\n${existingTitles || '(aucun)'}\n\nChoisis le meilleur sujet pour un article de blog à forte valeur ajoutée.`,
+  );
 
-  const text = completion.choices[0]?.message?.content;
-  if (!text) throw new Error('Réponse IA vide pour la sélection');
-
-  const parsed = JSON.parse(text) as SelectedTopic;
-  return parsed;
+  return JSON.parse(text) as SelectedTopic;
 }
 
 export async function generateArticle(
@@ -115,8 +173,6 @@ export async function generateArticle(
   sourceArticle: GNewsArticle | null,
   scientificRefs: PubMedRef[],
 ): Promise<GeneratedArticle> {
-  const client = getClient();
-
   const refsBlock = scientificRefs.length > 0
     ? `\nRéférences scientifiques disponibles à intégrer :\n${scientificRefs.map((r) => `- "${r.title}" (${r.authors}, ${r.year}, ${r.journal}) ${r.url}`).join('\n')}`
     : '\nAucune référence scientifique trouvée. N\'en invente pas.';
@@ -127,13 +183,9 @@ export async function generateArticle(
 
   const today = new Date().toISOString().split('T')[0];
 
-  const completion = await client.chat.completions.create({
-    model: process.env.AI_MODEL ?? 'gpt-4o',
-    messages: [
-      { role: 'system', content: SYSTEM_GENERATION },
-      {
-        role: 'user',
-        content: `Génère un article de blog pour Me Retrouver.
+  const text = await jsonResponse(
+    SYSTEM_GENERATION,
+    `Génère un article de blog pour Me Retrouver.
 
 Sujet : "${topic.title}"
 Angle : "${topic.angle}"
@@ -150,38 +202,16 @@ N'oublie pas de :
 - Parler de l'accompagnement possible (sans être insistant)
 - Ajouter <BookingCTA /> à la fin
 - Ajouter un lien vers /accompagnements ou /methodes ou /test-stress dans la note de bas de page`,
-      },
-    ],
-    response_format: { type: 'json_object' },
-  });
+  );
 
-  const text = completion.choices[0]?.message?.content;
-  if (!text) throw new Error('Réponse IA vide pour la génération');
-
-  const parsed = JSON.parse(text) as GeneratedArticle;
-  return parsed;
+  return JSON.parse(text) as GeneratedArticle;
 }
 
 export async function getScientificSearchTerms(title: string, angle: string): Promise<string[]> {
-  const client = getClient();
-
-  const completion = await client.chat.completions.create({
-    model: process.env.AI_MODEL ?? 'gpt-4o',
-    messages: [
-      {
-        role: 'system',
-        content: 'Tu dois retourner des termes de recherche PubMed (en anglais) pour trouver des études scientifiques pertinentes sur le sujet donné. Retourne UNIQUEMENT un tableau JSON de 1 à 3 chaînes de recherche.',
-      },
-      {
-        role: 'user',
-        content: `Sujet : "${title}"\nAngle : "${angle}"\n\nQuels termes de recherche PubMed (en anglais) utiliser pour trouver des études scientifiques pertinentes ?`,
-      },
-    ],
-    response_format: { type: 'json_object' },
-  });
-
-  const text = completion.choices[0]?.message?.content;
-  if (!text) return [];
+  const text = await jsonResponse(
+    SYSTEM_SEARCH_TERMS,
+    `Sujet : "${title}"\nAngle : "${angle}"\n\nQuels termes de recherche PubMed (en anglais) utiliser pour trouver des études scientifiques pertinentes ?`,
+  );
 
   try {
     const parsed = JSON.parse(text);
