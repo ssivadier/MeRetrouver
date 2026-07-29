@@ -31,6 +31,7 @@ import { selectBestTopic, generateArticle, getScientificSearchTerms } from './li
 import { searchPubMed } from './lib/pubmed';
 import { loadTopics, addTopic, isDuplicateTopic } from './lib/topics-log';
 import { getEmailConfig, sendReviewEmail } from './lib/email';
+import { downloadArticleImage } from './lib/images';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 
@@ -139,32 +140,53 @@ async function main() {
   const sourceArticle = selected.sourceIndex !== null ? articles[selected.sourceIndex] ?? null : null;
 
   const generated = await generateArticle(selected, sourceArticle, scientificRefs);
-  done('4/6', 'Article généré');
+  done('4/7', 'Article généré');
 
-  // ── 5. Création du fichier MDX ────────────────────────────
+  // ── 5. Téléchargement de l'image ──────────────────────────
 
-  log('5/6', 'Création du fichier MDX...');
-
-  // S'assurer que le slug est propre
+  log('5/7', 'Téléchargement de l\'image d\'illustration...');
   const slug = generated.slug || slugify(generated.title);
+  const imageUrl = await downloadArticleImage(slug, generated.imageKeyword, generated.imageAlt);
+  if (imageUrl) {
+    done('5/7', `Image téléchargée : ${imageUrl}`);
+  } else {
+    console.log('  Aucune image téléchargée (l\'article sera sans illustration).');
+  }
+
+  // ── 6. Création du fichier MDX ────────────────────────────
+
+  log('6/7', 'Création du fichier MDX...');
+
+  // Insérer l'image dans le body si disponible
+  let body = generated.body;
+  if (imageUrl) {
+    const imgTag = `\n\n<img src="${imageUrl}" alt="${generated.imageAlt}" class="w-full rounded-xl my-6 shadow-soft" />\n\n`;
+    // Insérer après le premier paragraphe de contenu (après le frontmatter)
+    const bodyParts = body.split('\n\n');
+    if (bodyParts.length >= 3) {
+      // bodyParts[0] = frontmatter, bodyParts[1] = première ligne après ---
+      bodyParts.splice(2, 0, imgTag.trim());
+      body = bodyParts.join('\n\n');
+    }
+  }
+
   const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
 
   if (fs.existsSync(filePath)) {
     console.warn(`⚠️  Le fichier ${slug}.mdx existe déjà. Ajout d'un suffixe.`);
     const altSlug = `${slug}-${Date.now()}`;
     const altPath = path.join(BLOG_DIR, `${altSlug}.mdx`);
-    fs.writeFileSync(altPath, generated.body);
-    done('5/6', `Fichier créé : content/blog/${altSlug}.mdx (publié: false)`);
-    // Update slug for email
+    fs.writeFileSync(altPath, body);
+    done('6/7', `Fichier créé : content/blog/${altSlug}.mdx (publié: false)`);
     generated.slug = altSlug;
   } else {
-    fs.writeFileSync(filePath, generated.body);
-    done('5/6', `Fichier créé : content/blog/${slug}.mdx (publié: false)`);
+    fs.writeFileSync(filePath, body);
+    done('6/7', `Fichier créé : content/blog/${slug}.mdx (publié: false)`);
   }
 
-  // ── 6. Log du sujet ───────────────────────────────────────
+  // ── 7. Log du sujet ───────────────────────────────────────
 
-  log('6/6', 'Enregistrement dans le journal des sujets...');
+  log('7/7', 'Enregistrement dans le journal des sujets...');
   addTopic({
     slug: generated.slug || slug,
     title: generated.title,
@@ -172,10 +194,11 @@ async function main() {
     sourceUrl: sourceArticle?.url,
     sourceTitle: sourceArticle?.title,
     scientificRefs: scientificRefs.map(r => r.url),
+    imageUrl: imageUrl ?? undefined,
   });
-  done('6/6', 'Sujet enregistré dans content/blog-topics.json');
+  done('7/7', 'Sujet enregistré dans content/blog-topics.json');
 
-  // ── 7. Email ──────────────────────────────────────────────
+  // ── 8. Email ──────────────────────────────────────────────
 
   const emailConfig = getEmailConfig();
   if (emailConfig) {
@@ -194,17 +217,24 @@ async function main() {
 
   // ── Résumé ────────────────────────────────────────────────
 
+  // Compter les mots du body (sans le frontmatter)
+  const bodyContent = generated.body.replace(/^---[\s\S]*?---\n*/m, '').trim();
+  const wordCount = bodyContent.split(/\s+/).length;
+
   console.log('\n═══════════════════════════════════════════════');
   console.log('   ✅ Article généré avec succès');
   console.log('═══════════════════════════════════════════════\n');
   console.log(`  Titre       : ${generated.title}`);
   console.log(`  Description : ${generated.description}`);
+  console.log(`  Mots        : ${wordCount}${wordCount < 600 ? ' ⚠️  ATTENTION : l\'article est trop court, relance si < 800' : ''}`);
+  console.log(`  Image       : ${imageUrl || 'aucune'}`);
   console.log(`  Fichier     : content/blog/${generated.slug || slug}.mdx`);
   console.log(`  Statut      : BROUILLON (published: false)`);
   console.log(`\n  Pour publier :`);
-  console.log(`  1. Relis le fichier`);
-  console.log(`  2. Passe published: true dans le frontmatter`);
-  console.log(`  3. Commit et push\n`);
+  console.log(`  1. Relis le fichier et vérifie le contenu`);
+  console.log(`  2. Si pas d'image Pexels, remplace picsum par une vraie image`);
+  console.log(`  3. Passe published: true dans le frontmatter`);
+  console.log(`  4. Commit et push\n`);
 }
 
 main().catch((err) => {

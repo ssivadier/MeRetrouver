@@ -10,6 +10,7 @@ export type TopicEntry = {
   sourceUrl?: string;
   sourceTitle?: string;
   scientificRefs?: string[];
+  imageUrl?: string;
 };
 
 export function loadTopics(): TopicEntry[] {
