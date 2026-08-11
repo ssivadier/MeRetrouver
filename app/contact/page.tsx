@@ -2,6 +2,7 @@ import { ContactDetails } from '@/components/layout/ContactDetails';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Reveal';
+import { ReconnectCTA } from '@/components/ui/ReconnectCTA';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { createBusinessSchema } from '@/content/site';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
@@ -30,6 +31,9 @@ export default function ContactPage() {
         <section className="page-section">
           <ContactDetails />
         </section>
+      </Reveal>
+      <Reveal delay={150}>
+        <ReconnectCTA />
       </Reveal>
       <StructuredData data={contactSchema} />
       <StructuredData data={createBreadcrumbSchema('/contact')} />

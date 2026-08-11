@@ -32,6 +32,7 @@ optimisation SEO qui abîmerait le ton de marque).
 | Roadmap de développement (prompts jour par jour) | Construction technique du site | Nouvelle fonctionnalité à coder |
 | `seo-local-me-retrouver` | Référencement local Pessac et environs | Question de visibilité, mots-clés, GBP |
 | `audit-marketing-bienetre-me-retrouver` | Relecture du texte de chaque page | Nouveau texte à valider avant publication |
+| `veille-techno-me-retrouver` | Veille concurrentielle et technologique (FR/USA) | Inspiration, "ce qui se fait ailleurs", nouvelles idées |
 
 ## Ordre d'intervention recommandé pour une nouvelle page
 

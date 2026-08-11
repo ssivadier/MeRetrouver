@@ -3,7 +3,7 @@ import type { Service } from '@/content/services';
 
 type ServiceSectionProps = Service;
 
-export function ServiceSection({ title, intro, signs, approach, methods }: ServiceSectionProps) {
+export function ServiceSection({ title, intro, signs, outcomes, approach, methods }: ServiceSectionProps) {
   return (
     <section className="page-section">
       <div className="space-y-4">
@@ -12,7 +12,7 @@ export function ServiceSection({ title, intro, signs, approach, methods }: Servi
       </div>
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Situations concernées</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Vous vous reconnaissez ?</h3>
           <ul className="mt-3 space-y-2 text-sm leading-7 text-brand-ink/80">
             {signs.map((sign) => (
               <li key={sign} className="flex items-start gap-2">
@@ -23,12 +23,12 @@ export function ServiceSection({ title, intro, signs, approach, methods }: Servi
           </ul>
         </div>
         <div className="rounded-2xl border border-brand-mist bg-brand-paper/70 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">En quelques chiffres</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Ce que vous pouvez retrouver</h3>
           <ul className="mt-3 space-y-2 text-sm leading-7 text-brand-ink/80">
-            {approach.map((item) => (
-              <li key={item} className="flex items-start gap-2">
+            {outcomes.map((outcome) => (
+              <li key={outcome} className="flex items-start gap-2">
                 <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-emerald" />
-                <span>{item}</span>
+                <span>{outcome}</span>
               </li>
             ))}
           </ul>
@@ -61,6 +61,20 @@ export function ServiceSection({ title, intro, signs, approach, methods }: Servi
           </div>
         </div>
       )}
+      <div className="mt-6 rounded-2xl border border-brand-mist bg-brand-paper/70 p-5">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Ce qui soutient cette démarche</h3>
+        <p className="mt-2 text-xs leading-5 text-brand-ink/50">
+          Des données issues d&apos;études, présentées en toute transparence.
+        </p>
+        <ul className="mt-3 space-y-2 text-sm leading-7 text-brand-ink/80">
+          {approach.map((item) => (
+            <li key={item} className="flex items-start gap-2">
+              <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-emerald" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
       <p className="mt-6 text-xs italic leading-6 text-brand-ink/60">
         Cet accompagnement ne se substitue pas à un suivi médical ou psychologique si nécessaire.
       </p>

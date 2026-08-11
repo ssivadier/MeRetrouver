@@ -6,7 +6,6 @@ import { createPageMetadata } from '@/lib/seo';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import { BlogArticle } from '@/components/blog/BlogArticle';
 import { YouTubeVideo } from '@/components/blog/YouTubeVideo';
-import { BookingCTA } from '@/components/blog/BookingCTA';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,7 +27,6 @@ export async function generateMetadata({ params }: Props) {
 
 const mdxComponents = {
   YouTubeVideo,
-  BookingCTA,
 };
 
 export default async function BlogPostPage({ params }: Props) {

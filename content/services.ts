@@ -9,6 +9,7 @@ export type Service = {
   title: string;
   intro: string;
   signs: string[];
+  outcomes: string[];
   approach: string[];
   methods: ServiceMethod[];
 };
@@ -17,11 +18,16 @@ export const services: Service[] = [
   {
     title: 'Stress & burnout',
     intro:
-      'Je vous aide à détecter les cycles de tension/compensation. Nous travaillons ensemble pour identifier les causes physiques, cognitives puis émotionnelles. Je vous accompagne pour retrouver une détente et vous donner les outils pour réduire l\'impact de ces tensions dans votre quotidien.',
+      'Je comprends ce que c\'est que de tenir le coup jour après jour, en continuant d\'avancer parce qu\'il le faut bien. Les personnes que j\'accompagne décrivent souvent cette impression d\'avoir perdu l\'envie, l\'énergie — et parfois le fil d\'elles-mêmes — sans comprendre pourquoi leur corps ne suit plus. Ensemble, nous nommons ce qui se passe, puis nous retrouvons, pas à pas, un rythme qui vous ressemble.',
     signs: [
       'Surcharge mentale ou fatigue persistante',
       'Difficulté à décrocher ou à retrouver de l\’énergie',
       'Ressentis de tension, d\’irritabilité ou de saturation',
+    ],
+    outcomes: [
+      'De l\’énergie qui revient, et un sommeil qui répare enfin',
+      'Du plaisir dans les moments simples — vos enfants, vos proches, un bon repas',
+      'Une présence à vous-même, au lieu de la survie',
     ],
     approach: [
       '30 à 40 % des personnes ayant vécu un burnout font une rechute dans les 2 à 3 ans',
@@ -52,11 +58,16 @@ export const services: Service[] = [
   {
     title: 'Phobies',
     intro:
-      'Cet accompagnement peut apporter une aide à mieux vivre avec certaines peurs intenses, des réactions disproportionnées ou des situations qui deviennent difficiles à affronter.',
+      'Je comprends cette peur qui paraît disproportionnée à tout le monde — et à vous-même — mais qui, sur le moment, est bien réelle et envahissante. Vous savez que la peur est irrationnelle, et pourtant votre corps ne vous écoute plus. Je vous accompagne pour que cette peur n\'ait plus le dernier mot.',
     signs: [
       'Peurs spécifiques liées à certaines situations ou objets',
       'Évitement de lieux ou d\’activités',
       'État d\’alerte important avant une situation redoutée',
+    ],
+    outcomes: [
+      'Faire ce que vous évitez aujourd\’hui — prendre l\’avion, parler en public, sortir',
+      'Une peur qui peut être présente sans diriger votre vie',
+      'La liberté de ne plus contourner votre quotidien',
     ],
     approach: [
       '12,1 % des adultes présentent une phobie spécifique',
@@ -75,11 +86,16 @@ export const services: Service[] = [
   {
     title: 'Troubles liés au stress post-traumatique',
     intro:
-      'Cet accompagnement peut offrir une aide à mieux vivre avec des souvenirs marquants, des réactions de sursaut, des difficultés à se sentir en sécurité ou des symptômes liés à un vécu difficile.',
+      'Je comprends ce que c\'est de vivre avec des réactions qui vous dépassent : des souvenirs qui reviennent sans prévenir, un corps qui reste en alerte, cette impression de ne plus être vraiment en sécurité — ni parfois vraiment vous-même. Je vous accompagne pour apaiser ce qui est resté trop longtemps à vif, à votre rythme.',
     signs: [
       'Revives de souvenirs ou de sensations intenses',
       'Évitement de certains lieux, personnes ou sujets',
       'Difficultés à retrouver un sentiment de calme ou de sécurité',
+    ],
+    outcomes: [
+      'Des nuits plus calmes, où le corps finit par se relâcher',
+      'Un sentiment de sécurité qui revient peu à peu',
+      'Retrouver confiance en vous, et dans les autres',
     ],
     approach: [
       'Les personnes ayant vécu un trauma ont 2 à 3× plus de risque de burnout',

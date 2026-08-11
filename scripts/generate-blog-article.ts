@@ -54,6 +54,69 @@ function done(step: string, msg: string) {
   console.log(`  ✔ ${msg}`);
 }
 
+/**
+ * Nettoie les guillemets YAML malformés (ex: title:" "valeur"" → title: "valeur")
+ */
+function fixYamlQuotes(line: string): string {
+  const match = line.match(/^(\s*\w+\s*:\s*)(.*)$/);
+  if (!match) return line;
+  const key = match[1];
+  let val = match[2].trim();
+  val = val.replace(/^["'\s]+|["'\s]+$/g, '');
+  return `${key}"${val}"`;
+}
+
+/**
+ * Normalise le body d'un article MDX :
+ * - supprime les lignes vides en tête
+ * - corrige les guillemets YAML malformés
+ * - assure la présence du `---` fermant le frontmatter
+ * - déplace l'image au début du contenu si elle est au milieu
+ * - supprime les `## Accroche` superflus
+ */
+function normalizeBody(body: string): string {
+  let b = body.trimStart();
+
+  // ── Correction du frontmatter YAML ──
+  const firstSep = b.indexOf('---');
+  if (firstSep !== -1) {
+    const afterFirst = b.indexOf('---', firstSep + 3);
+    if (afterFirst !== -1) {
+      let fm = b.slice(firstSep + 3, afterFirst);
+      fm = fm.split('\n').map(line => {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) return line;
+        if (/^\w+\s*:/.test(trimmed)) {
+          return fixYamlQuotes(trimmed);
+        }
+        return line;
+      }).join('\n');
+      b = b.slice(0, firstSep + 3) + fm + b.slice(afterFirst);
+    } else {
+      b = b.replace(/^(published:\s*(true|false))\s*\n?/m, '$1\n---\n\n');
+    }
+  }
+
+  // ── Image au milieu → déplacement en haut ──
+  const fmEnd = b.indexOf('\n---\n');
+  if (fmEnd !== -1) {
+    const contentAfter = b.slice(fmEnd + 5);
+    const imgMatch = contentAfter.match(/(<img\s[^>]*\/>)/);
+    if (imgMatch) {
+      const imgPos = contentAfter.indexOf(imgMatch[1]);
+      if (imgPos > 200) {
+        const rest = contentAfter.replace(imgMatch[1], '').trim();
+        b = b.slice(0, fmEnd + 5) + imgMatch[1] + '\n\n' + rest;
+      }
+    }
+  }
+
+  // ── Supprime la section "## Accroche" ──
+  b = b.replace(/^---\n\n## Accroche\s*\n/m, '---\n\n');
+
+  return b;
+}
+
 // ── Main ─────────────────────────────────────────────────────
 
 async function main() {
@@ -169,6 +232,9 @@ async function main() {
       body = bodyParts.join('\n\n');
     }
   }
+
+  // Normaliser le body (frontmatter fermé, pas de ligne vide en tête, etc.)
+  body = normalizeBody(body);
 
   const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
 

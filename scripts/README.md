@@ -13,7 +13,7 @@ Le script interactive en 7 étapes :
 2. **IA** — sélectionne le sujet le plus prometteur (évite les doublons)
 3. **PubMed** — cherche des études scientifiques pour étayer l'article
 4. **IA** — génère l'article complet (800+ mots, exercice pratique inclus)
-5. **Image** — télécharge une illustration (Pexels ou Lorem Picsum)
+5. **Image** — télécharge une illustration via Pexels (plusieurs tentatives avec mots-clés améliorés)
 6. **Fichier** — crée `content/blog/<slug>.mdx` (brouillon, `published: false`)
 7. **Email** — envoie une notification pour relecture
 
@@ -36,7 +36,7 @@ AI_MODEL=...
 # ── Optionnel ──
 
 # Image — https://pexels.com/api (gratuit)
-# Si absent, utilise Lorem Picsum (images génériques)
+# Si absent, l'article sera publié sans illustration
 PEXELS_API_KEY=...
 
 # Email — notification après génération
@@ -92,8 +92,6 @@ published: false
 
 Contenu de l'article en Markdown...
 
-<BookingCTA />
-
 *Lien vers [les accompagnements](/accompagnements).*
 ```
 
@@ -106,4 +104,4 @@ Contenu de l'article en Markdown...
 → Le script retente automatiquement 2 fois. Si ça persiste, vérifie que le modèle supporte le format JSON.
 
 **Pas d'image téléchargée**
-→ Sans clé Pexels, le script utilise Lorem Picsum (image générique). Crée un compte gratuit sur pexels.com/api pour des images pertinentes.
+→ Pexels n'a pas trouvé d'image pertinente pour les mots-clés générés. Vérifie que ta `PEXELS_API_KEY` est valide. L'article sera créé sans illustration, c'est mieux qu'une image hors-sujet.

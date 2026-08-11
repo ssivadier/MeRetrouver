@@ -3,6 +3,7 @@ import { profileDefaults } from '@/content/about';
 type ProfileHeroProps = {
   name?: string;
   role?: string;
+  banner?: string;
   imageAlt?: string;
   imageSrc?: string;
 };
@@ -10,6 +11,7 @@ type ProfileHeroProps = {
 export function ProfileHero({
   name = profileDefaults.name,
   role = profileDefaults.role,
+  banner = 'J\'ai traversé un burn-out. Je comprends ce que vous vivez.',
   imageAlt = profileDefaults.imageAlt,
   imageSrc = profileDefaults.imageSrc,
 }: ProfileHeroProps) {
@@ -24,6 +26,7 @@ export function ProfileHero({
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">Qui suis-je</p>
         <h1 className="font-display text-3xl font-semibold text-brand-deep sm:text-4xl">{name}</h1>
         <p className="text-lg leading-8 text-brand-ink/80">{role}</p>
+        <p className="font-display text-lg font-semibold text-brand-emerald">{banner}</p>
       </div>
     </section>
   );

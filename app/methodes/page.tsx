@@ -1,6 +1,7 @@
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Reveal';
+import { ReconnectCTA } from '@/components/ui/ReconnectCTA';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { BarriosStudy } from '@/components/methods/BarriosStudy';
 import { BinauralStudy } from '@/components/methods/BinauralStudy';
@@ -11,7 +12,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Méthodes hypnothérapie — Études scientifiques',
   description:
-    'Des pratiques d\'accompagnement — hypnose, cohérence cardiaque, rythmes binauraux — présentées au regard des études scientifiques.',
+    'L\'hypnose, la cohérence cardiaque et les rythmes binauraux : des pratiques soutenues par la science pour vous aider à vous retrouver.',
   path: '/methodes',
 });
 
@@ -21,8 +22,8 @@ export default function MethodesPage() {
       <Reveal>
         <PageHeader
           eyebrow="Pratiques"
-          title="Des pratiques soutenues par la science"
-          description="Trois approches complémentaires, évaluées par des méta-analyses et des études cliniques rigoureuses."
+          title="Des outils pour vous retrouver"
+          description="Trois approches complémentaires, évaluées par des méta-analyses et des études cliniques rigoureuses — au service d\'un seul objectif : revenir à vous."
         />
       </Reveal>
 
@@ -36,6 +37,10 @@ export default function MethodesPage() {
 
       <Reveal delay={250}>
         <BinauralStudy />
+      </Reveal>
+
+      <Reveal delay={320}>
+        <ReconnectCTA />
       </Reveal>
 
       <StructuredData data={createBreadcrumbSchema('/methodes')} />

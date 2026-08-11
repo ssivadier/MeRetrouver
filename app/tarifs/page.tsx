@@ -3,7 +3,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { PageShell } from '@/components/layout/PageShell';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { BookingButton } from '@/components/ui/BookingButton';
-import { pricingBenefits, pricingModalities } from '@/content/pricing';
+import { pricingBenefits, pricingModalities, sessionPrice, stressBurnoutPackage } from '@/content/pricing';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
 import { cardAccents } from '@/lib/design-tokens';
@@ -24,12 +24,20 @@ const pricingSchema = {
       addressCountry: 'FR',
     },
   },
-  offers: {
-    '@type': 'Offer',
-    price: '70',
-    priceCurrency: 'EUR',
-    description: 'Séance d\'1 heure en cabinet, à domicile ou en visio',
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      price: sessionPrice,
+      priceCurrency: 'EUR',
+      description: 'Séance d\'1 heure en cabinet, à domicile ou en visio',
+    },
+    {
+      '@type': 'Offer',
+      price: stressBurnoutPackage.price,
+      priceCurrency: 'EUR',
+      description: `Parcours Stress & Burnout — ${stressBurnoutPackage.sessions} séances d'1 heure`,
+    },
+  ],
   areaServed: {
     '@type': 'Place',
     name: 'Pessac, Bordeaux et à distance',
@@ -66,6 +74,55 @@ export default function TarifsPage() {
         </section>
       </Reveal>
 
+      <Reveal delay={50}>
+        <section className="page-section">
+          <div className="grid gap-6 md:grid-cols-2">
+            <article className="card-surface flex flex-col gap-4 border-t-2 border-t-brand-emerald p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
+                À la séance
+              </p>
+              <div className="flex items-baseline gap-2">
+                <p className="font-display text-4xl font-bold text-brand-deep">
+                  {sessionPrice}&nbsp;&euro;
+                </p>
+                <p className="text-sm text-brand-ink/70">la séance d&apos;1 heure</p>
+              </div>
+              <p className="text-sm leading-7 text-brand-ink/80">
+                Idéal pour commencer ou avancer à votre rythme, sans engagement. Chaque séance est payée séparément.
+              </p>
+              <div className="mt-auto">
+                <BookingButton />
+              </div>
+            </article>
+
+            <article className="card-surface relative flex flex-col gap-4 border-t-4 border-t-brand-gold p-6">
+              <span className="absolute right-4 top-4 rounded-full bg-brand-gold/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-deep">
+                Économisez {stressBurnoutPackage.savings}&nbsp;&euro;
+              </span>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">
+                {stressBurnoutPackage.name}
+              </p>
+              <div className="flex items-baseline gap-2">
+                <p className="font-display text-4xl font-bold text-brand-deep">
+                  {stressBurnoutPackage.price}&nbsp;&euro;
+                </p>
+                <p className="text-sm text-brand-ink/70">
+                  / {stressBurnoutPackage.sessions} séances d&apos;1 heure
+                </p>
+              </div>
+              <p className="text-sm leading-7 text-brand-ink/80">
+                <span className="line-through">{stressBurnoutPackage.sessions}&nbsp;×&nbsp;{sessionPrice}&nbsp;&euro; = {stressBurnoutPackage.sessions * sessionPrice}&nbsp;&euro;</span>
+                <span className="font-semibold text-brand-emerald"> soit {stressBurnoutPackage.perSession}&nbsp;&euro; la séance (-{stressBurnoutPackage.savingsPercent}&nbsp;%)</span>
+              </p>
+              <p className="text-sm leading-7 text-brand-ink/80">{stressBurnoutPackage.tagline}</p>
+              <div className="mt-auto">
+                <BookingButton />
+              </div>
+            </article>
+          </div>
+        </section>
+      </Reveal>
+
       <Reveal delay={80}>
         <section className="page-section flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
           <div className="flex-1 space-y-3">
@@ -90,6 +147,32 @@ export default function TarifsPage() {
               ))}
             </ul>
           </div>
+        </section>
+      </Reveal>
+
+      <Reveal delay={150}>
+        <section className="page-section flex flex-col gap-10">
+          <div className="space-y-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-deep">
+              Le déroulement du parcours
+            </p>
+            <p className="max-w-2xl text-base leading-7 text-brand-ink/80">
+              Un parcours structuré, à votre rythme, avec une progression pensée pour durer&nbsp;:
+            </p>
+          </div>
+          <ol className="grid gap-4 md:grid-cols-2">
+            {stressBurnoutPackage.steps.map((step, i) => (
+              <li key={step} className={`card-surface flex gap-4 p-6 border-t-2 ${cardAccents[i % cardAccents.length]}`}>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-emerald/10 font-display text-lg font-bold text-brand-emerald">
+                  {i + 1}
+                </span>
+                <p className="text-sm leading-7 text-brand-ink/80">{step}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="max-w-2xl text-sm leading-7 text-brand-ink/70">
+            Comme pour chaque séance, cet accompagnement peut être pris en charge partiellement ou totalement par votre mutuelle, selon votre contrat.
+          </p>
         </section>
       </Reveal>
 

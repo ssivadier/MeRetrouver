@@ -18,7 +18,7 @@ const levels = [
   { min: 0, max: 6, label: 'stress faible', color: 'text-brand-emerald', bg: 'bg-brand-emerald', description: 'Vous semblez plutôt serein(e) en ce moment.' },
   { min: 7, max: 13, label: 'stress modéré', color: 'text-brand-gold', bg: 'bg-brand-gold', description: 'Quelques tensions à surveiller, pensez à des pauses régulières.' },
   { min: 14, max: 19, label: 'stress élevé', color: 'text-brand-warning', bg: 'bg-brand-warning', description: 'Il serait utile de mettre en place des stratégies de gestion du stress (sommeil, activité physique, relaxation).' },
-  { min: 20, max: 24, label: 'stress très élevé', color: 'text-brand-danger', bg: 'bg-brand-danger', description: 'Un accompagnement (médecin traitant, psychologue) pourrait vraiment vous aider à souffler.' },
+  { min: 20, max: 24, label: 'stress très élevé', color: 'text-brand-danger', bg: 'bg-brand-danger', description: 'Un accompagnement (médecin traitant, psychologue) pourrait vraiment vous aider à souffler — et à retrouver progressivement qui vous êtes.' },
 ];
 
 export function StressTest() {
@@ -59,7 +59,8 @@ export function StressTest() {
           Test de niveau de stress
         </h1>
         <p className="max-w-2xl text-base leading-7 text-brand-ink/80">
-          Pour chaque question, notez de 0 à 4 votre réponse en pensant au dernier mois.
+          Ce test n&apos;est pas là pour vous juger, mais pour poser des mots sur ce que vous ressentez.
+          Personne ne note vos réponses. Pour chaque question, répondez en pensant au dernier mois.
         </p>
       </div>
 

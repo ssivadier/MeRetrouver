@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "slug": "le-pouvoir-apaisant-de-la-mer",
+    "title": "Le pouvoir apaisant de la mer : comment la contemplation marine réduit le stress et l'anxiété",
+    "generatedAt": "2026-07-29T10:00:37.633Z",
+    "sourceUrl": "https://www.franceinfo.fr/replay-radio/c-est-ma-sante/pour-quelles-raisons-la-mer-nous-fait-elle-du-bien_8069582.html",
+    "sourceTitle": "Pour quelles raisons la mer nous fait-elle du bien ?",
+    "scientificRefs": []
+  },
+  {
+    "slug": "les-terreurs-nocturnes-comprendre-et-gerer-les-episodes-de-peur-pendant-le-sommeil",
+    "title": "Les terreurs nocturnes : comprendre et gérer les épisodes de peur pendant le sommeil",
+    "generatedAt": "2026-07-29T12:07:39.517Z",
+    "sourceUrl": "https://www.lemonde.fr/series-d-ete/article/2026/07/28/terreurs-nocturnes-hurlements-et-gestes-inconsideres-quand-le-cerveau-est-a-moitie-endormi_6735363_3451060.html",
+    "sourceTitle": "Terreurs nocturnes : hurlements et gestes inconsidérés, quand le cerveau est à moitié endormi…",
+    "scientificRefs": [],
+    "imageUrl": "/blog/images/les-terreurs-nocturnes-comprendre-et-gerer-les-episodes-de-peur-pendant-le-sommeil.jpg"
+  },
+  {
+    "slug": "sommeil-et-stress-comprendre-les-liens",
+    "title": "Sommeil et stress : comprendre les liens entre les nuits difficiles et l'anxiété",
+    "generatedAt": "2026-07-29T13:43:36.984Z",
+    "sourceUrl": "https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/incendies-et-feux-de-foret/incendies-en-gironde/reportage-les-nuits-sont-difficiles-au-parc-des-expositions-de-bordeaux-la-fatigue-et-l-angoisse-gagnent-les-evacues-des-incendies_8125331.html",
+    "sourceTitle": "REPORTAGE. \"Les nuits sont difficiles\" : au Parc des expositions de Bordeaux, la fatigue et l'angoisse gagnent les évacués des incendies",
+    "scientificRefs": [],
+    "imageUrl": "/blog/images/sommeil-et-stress-comprendre-les-liens.jpg"
+  }
+]

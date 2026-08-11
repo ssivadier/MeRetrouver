@@ -4,6 +4,7 @@ import { WhyThisPath } from '@/components/about/WhyThisPath';
 import { ContactDetails } from '@/components/layout/ContactDetails';
 import { PageShell } from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Reveal';
+import { ReconnectCTA } from '@/components/ui/ReconnectCTA';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { formationStory } from '@/content/about';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
@@ -27,6 +28,9 @@ export default function AboutPage() {
       </Reveal>
       <Reveal delay={150}>
           <ProfileStory {...formationStory} />
+      </Reveal>
+      <Reveal delay={175}>
+        <ReconnectCTA />
       </Reveal>
       <Reveal delay={200}>
         <section className="page-section">

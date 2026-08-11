@@ -25,12 +25,12 @@ export default function HomePage() {
           <div className="space-y-6">
             <h1 className="sr-only">Hypnothérapie à Pessac — Accompagnement stress, burnout, phobies</h1>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
-              quand le stress devient votre quotidien, il finit par prendre le contrôle.
+              "Je ne me reconnais plus, et je ne sais plus comment revenir à qui j'étais."
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Vous sentez des tensions dans votre corps, votre cœur qui s&apos;emballe, votre sommeil est instable, des reflux acides. Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>.
+              Ce n&apos;est pas juste &quot;J&apos;ai du stress&quot; (<a href="https://fondation-ramsaysante.com/observatoire-stress" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-emerald underline underline-offset-2 transition hover:text-brand-deep">59% des Français sont en état de stress en 2025.</a>). Mais quelque part entre votre corps qui essaie de vous dire que ça ne va pas (votre cœur qui s&apos;emballe, votre sommeil instable, des reflux acides, crises de panique,...) et votre humeur qui change malgré vos efforts (impatience, isolements, colères,...), vous perdez le contrôle de votre vie. Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>, mais vous naviguez entre la culpabilité de ne pas réussir à aller mieux et le sentiment que chaque jour est un fardeau.
               <br /><br />
-              Malgré tous vos efforts, votre humeur et votre comportement ont changé. Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, mais vous ne savez plus comment faire.
+              Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, reprendre du plaisir à être avec vos enfants, votre conjoint(e) et vos amis, mais vous ne savez plus comment faire. Vous n&apos;êtes ni faible, ni seul(e) dans ce cas. Mais si vous ne traitez pas la cause, avec les bons outils, vous risquez de traîner cette souffrance pendant des années au lieu de profiter de l&apos;instant présent.
             </p>
           </div>
 
@@ -63,12 +63,15 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
               En quoi nous pouvons vous aider ?
             </p>
+            <p className="font-display text-lg font-semibold text-brand-deep">
+              Vous ne cherchez pas seulement à &quot;moins stresser&quot;. Vous cherchez à <span className="highlight-gold">redevenir vous-même</span>. Voici comment je vous y accompagne.
+            </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Notre approche en hypnothérapie à Pessac n&apos;est pas sur les symptômes, comme le sont les médicaments, mais sur <span className="highlight-gold">la cause du stress</span>.
+              Notre approche en hypnothérapie à Pessac n&apos;est pas sur les symptômes, mais sur <span className="highlight-gold">la cause du stress</span>.
               <br /><br />
               La cause de ce stress peut revêtir plusieurs formes, mais sa conséquence est un déséquilibre entre le système sympathique et parasympathique qui induit une réaction forte. C&apos;est utile et naturel. Lorsque le danger est réel (un tigre en face de vous par exemple), cela vous protège. Mais dans nos vies sur-stimulées, ou suite à un traumatisme, ce déséquilibre tend à ne pas revenir à la normale.
               <br /><br />
-              Par ailleurs, nous n&apos;utilisons que des pratiques pour lesquelles il y a eu des études scientifiques et dont <span className="highlight-gold">l&apos;efficacité a été démontrée</span>. Pas d&apos;ésotérisme ou de croyances.
+              Par ailleurs, nous n&apos;utilisons que des pratiques pour lesquelles il y a eu des études scientifiques et dont <span className="highlight-gold">l&apos;efficacité a été démontrée</span>. Pas d&apos;ésotérisme, uniquement des pratiques qui ont fait leurs preuves, et qui sont adaptées à votre situation.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">

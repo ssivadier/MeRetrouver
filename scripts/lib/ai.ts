@@ -53,18 +53,20 @@ Règles strictes :
 - Phrases courtes, percutantes. Ton humain, pas académique
 - Le "vous" pour s'adresser au lecteur
 - Aucune promesse de résultat — reste honnête et nuancé
+- Le lecteur doit se sentir compris dès les premières lignes : nomme son vécu précisément, sans jugement, avant de donner la moindre explication
+- Formule les bénéfices comme un retour à soi (retrouver de l'énergie, du plaisir, une présence à soi-même, redevenir soi) plutôt que comme une simple réduction du stress
 
 **Longueur minimale : 800 mots** (compte le body uniquement, pas le frontmatter). Un article trop court paraît superficiel.
 
 **Structure obligatoire** (dans cet ordre) :
-1. **Accroche** — un premier paragraphe qui plonge le lecteur dans le sujet, parle de son vécu
+1. **Accroche** — un premier paragraphe qui plonge le lecteur dans son vécu (« vous vous reconnaissez peut-être dans… »), qui nomme ce qu'il ressent sans fatalité ni jugement. Le lecteur doit se sentir compris avant de recevoir la moindre explication
 2. **Comprendre le mécanisme** — pourquoi ce phénomène arrive, comment ça fonctionne (avec des chiffres, des données, des études)
 3. **Ce que vous pouvez faire** — au moins UN EXERCICE PRATIQUE, concret, actionnable dès ce soir :
    - Une technique de respiration, un exercice de visualisation, un protocole pas-à-pas
    - Quelque chose que le lecteur peut essayer immédiatement chez lui
    - Décris-le précisément (durée, étapes, fréquence)
 4. **Quand consulter** — les signes qui montrent qu'un accompagnement serait utile
-5. **Conclusion** — douce, responsabilisante, qui redonne du pouvoir au lecteur
+5. **Conclusion** — douce, responsabilisante, qui redonne du pouvoir au lecteur et relie le sujet à l'idée de se retrouver / redevenir soi-même (pas seulement « moins de stress »)
 
 **Contenu substantiel exigé** :
 - Minimum 2 chiffres ou données précis (ex: "12% des adultes", "g=0.96", "5 séances en moyenne")
@@ -80,8 +82,8 @@ Réponds UNIQUEMENT au format JSON, sans texte avant ni après :
   "slug": "slug-auto-genere-en-kebab-case",
   "description": "Phrase d'accroche pour le meta-description (120-155 caractères)",
   "body": "Contenu complet au format Markdown, avec le frontmatter YAML --- inclus, minimum 800 mots",
-  "imageAlt": "Texte alternatif pour l'image d'illustration (décrit l'image, pas le sujet)",
-  "imageKeyword": "Mot-clé pour chercher une image libre de droits (ex: 'meditation nature', 'fatigue bureau', 'relaxation foret')"
+  "imageAlt": "Texte alternatif décrivant précisément l'image recherchée (ex: 'Personne anxieuse assise au bord de son lit la nuit, regard inquiet')",
+  "imageKeyword": "Mots-clés visuels et concrets pour chercher une photo libre de droits. Sois précis et descriptif (ex: 'anxiety insomnia night bedroom worried woman', 'stress burnout tired office employee', 'phobia fear irrational therapy calm'). EN ANGLAIS de préférence, 3-6 mots, décrivant une scène visuelle."
 }`;
 
 const SYSTEM_SEARCH_TERMS = 'Tu dois retourner des termes de recherche PubMed (en anglais) pour trouver des études scientifiques pertinentes sur le sujet donné. Retourne UNIQUEMENT un tableau JSON de 1 à 3 chaînes de recherche, sans texte avant ni après.';
@@ -241,12 +243,21 @@ ${refsBlock}
 Utilise la date d'aujourd'hui (${today}) dans le frontmatter.
 
 Le frontmatter YAML doit contenir : title, date, description, slug, published (false).
+Format YAML EXIGÉ : chaque valeur doit être entre guillemets, avec un espace après le deux-points.
+Exemple correct :
+  title: "Mon titre : avec deux-points"
+  description: "Ma description"
+  slug: "mon-slug"
+  published: false
+Exemple INCORRECT à ne pas reproduire :
+  title:"Mauvais"    (pas d'espace après :)
+  title: "Mauvais"" (guillemets en trop)
+  published:false   (pas d'espace)
 Le slug doit être en kebab-case.
 published: false (c'est un brouillon pour relecture).
 
 N'oublie pas de :
 - Parler de l'accompagnement possible (sans être insistant)
-- Ajouter <BookingCTA /> à la fin
 - Ajouter un lien vers /accompagnements ou /methodes ou /test-stress dans la note de bas de page`,
     ),
   );

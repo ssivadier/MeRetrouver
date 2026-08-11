@@ -1,6 +1,7 @@
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Reveal';
+import { ReconnectCTA } from '@/components/ui/ReconnectCTA';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard';
 import { testimonials } from '@/content/testimonials';
@@ -30,6 +31,9 @@ export default function TestimonialsPage() {
             <TestimonialCard key={testimonial.name} {...testimonial} />
           ))}
         </section>
+      </Reveal>
+      <Reveal delay={150}>
+        <ReconnectCTA />
       </Reveal>
       <StructuredData data={createBreadcrumbSchema('/temoignages')} />
     </PageShell>
