@@ -3,11 +3,11 @@ import type { Service } from '@/content/services';
 
 type ServiceSectionProps = Service;
 
-export function ServiceSection({ title, intro, signs, outcomes, approach, methods }: ServiceSectionProps) {
+export function ServiceSection({ anchor, title, intro, signs, outcomes, approach, methods }: ServiceSectionProps) {
   return (
-    <section className="page-section">
+    <section className="page-section scroll-mt-24">
       <div className="space-y-4">
-        <h2 className="font-display text-2xl font-semibold text-brand-deep">{title}</h2>
+        <h2 id={anchor} className="scroll-mt-24 font-display text-2xl font-semibold text-brand-deep">{title}</h2>
         <p className="text-base leading-7 text-brand-ink/80">{intro}</p>
       </div>
       <div className="mt-6 grid gap-6 lg:grid-cols-2">

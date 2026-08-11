@@ -6,6 +6,7 @@ export type ServiceMethod = {
 };
 
 export type Service = {
+  anchor: string;
   title: string;
   intro: string;
   signs: string[];
@@ -16,6 +17,7 @@ export type Service = {
 
 export const services: Service[] = [
   {
+    anchor: 'stress-burnout',
     title: 'Stress & burnout',
     intro:
       'Je comprends ce que c\'est que de tenir le coup jour après jour, en continuant d\'avancer parce qu\'il le faut bien. Les personnes que j\'accompagne décrivent souvent cette impression d\'avoir perdu l\'envie, l\'énergie — et parfois le fil d\'elles-mêmes — sans comprendre pourquoi leur corps ne suit plus. Ensemble, nous nommons ce qui se passe, puis nous retrouvons, pas à pas, un rythme qui vous ressemble.',
@@ -56,6 +58,7 @@ export const services: Service[] = [
     ],
   },
   {
+    anchor: 'phobies',
     title: 'Phobies',
     intro:
       'Je comprends cette peur qui paraît disproportionnée à tout le monde — et à vous-même — mais qui, sur le moment, est bien réelle et envahissante. Vous savez que la peur est irrationnelle, et pourtant votre corps ne vous écoute plus. Je vous accompagne pour que cette peur n\'ait plus le dernier mot.',
@@ -84,6 +87,7 @@ export const services: Service[] = [
     ],
   },
   {
+    anchor: 'stress-post-traumatique',
     title: 'Troubles liés au stress post-traumatique',
     intro:
       'Je comprends ce que c\'est de vivre avec des réactions qui vous dépassent : des souvenirs qui reviennent sans prévenir, un corps qui reste en alerte, cette impression de ne plus être vraiment en sécurité — ni parfois vraiment vous-même. Je vous accompagne pour apaiser ce qui est resté trop longtemps à vif, à votre rythme.',

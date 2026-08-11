@@ -25,10 +25,10 @@ export default function HomePage() {
           <div className="space-y-6">
             <h1 className="sr-only">Hypnothérapie à Pessac — Accompagnement stress, burnout, phobies</h1>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
-              "Je ne me reconnais plus, et je ne sais plus comment revenir à qui j'étais."
+              Le stress me bouffe la vie, et je ne sais plus comment m&apos;en sortir.
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Ce n&apos;est pas juste &quot;J&apos;ai du stress&quot; (<a href="https://fondation-ramsaysante.com/observatoire-stress" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-emerald underline underline-offset-2 transition hover:text-brand-deep">59% des Français sont en état de stress en 2025.</a>). Mais quelque part entre votre corps qui essaie de vous dire que ça ne va pas (votre cœur qui s&apos;emballe, votre sommeil instable, des reflux acides, crises de panique,...) et votre humeur qui change malgré vos efforts (impatience, isolements, colères,...), vous perdez le contrôle de votre vie. Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>, mais vous naviguez entre la culpabilité de ne pas réussir à aller mieux et le sentiment que chaque jour est un fardeau.
+              Ce n&apos;est pas juste &quot;J&apos;ai du stress&quot; (<a href="https://fondation-ramsaysante.com/observatoire-stress" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-emerald underline underline-offset-2 transition hover:text-brand-deep">59% des Français sont en état de stress en 2025</a>). Et peu importe la porte d&apos;entrée : un <span className="highlight-gold">épuisement qui dure</span> et vous vide, une <span className="highlight-gold">peur qui vous bloque</span> et vous fait renoncer, ou des <span className="highlight-gold">souvenirs qui reviennent</span> sans prévenir... quelque chose a pris le contrôle de votre vie. Votre corps essaie de vous dire que ça ne va pas (votre cœur qui s&apos;emballe, votre sommeil instable, des reflux acides, des crises de panique,...) et votre humeur change malgré vos efforts (impatience, isolements, colères,...). Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>, mais vous naviguez entre la culpabilité de ne pas réussir à aller mieux et le sentiment que chaque jour est un fardeau.
               <br /><br />
               Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, reprendre du plaisir à être avec vos enfants, votre conjoint(e) et vos amis, mais vous ne savez plus comment faire. Vous n&apos;êtes ni faible, ni seul(e) dans ce cas. Mais si vous ne traitez pas la cause, avec les bons outils, vous risquez de traîner cette souffrance pendant des années au lieu de profiter de l&apos;instant présent.
             </p>
@@ -36,14 +36,24 @@ export default function HomePage() {
 
           <div className="space-y-4">
             <p className="font-display text-2xl font-semibold text-brand-deep">
-              Reconnaître 3 formes de stress
+              Vous vous reconnaissez ?
+            </p>
+            <p className="text-sm leading-6 text-brand-ink/60">
+              Trois situations fréquentes. Peu importe la vôtre : l&apos;objectif est le même — reprendre le contrôle de votre vie.
             </p>
             <div className="grid gap-4 md:grid-cols-3">
               {homePainPoints.map((item, i) => (
-                <article key={item.title} className={`card-surface flex flex-col gap-3 border-t-2 ${cardAccents[i]}`}>
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className={`card-surface group flex flex-col gap-3 border-t-2 transition hover:-translate-y-0.5 hover:shadow-lg ${cardAccents[i]}`}
+                >
                   <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
                   <p className="text-base leading-7 text-brand-ink/80">{item.text}</p>
-                </article>
+                  <span className="mt-auto pt-2 text-sm font-semibold text-brand-emerald underline underline-offset-2 transition group-hover:text-brand-deep">
+                    En savoir plus sur cet accompagnement →
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

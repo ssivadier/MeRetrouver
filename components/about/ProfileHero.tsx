@@ -11,7 +11,7 @@ type ProfileHeroProps = {
 export function ProfileHero({
   name = profileDefaults.name,
   role = profileDefaults.role,
-  banner = 'J\'ai traversé un burn-out. Je comprends ce que vous vivez.',
+  banner = 'J\'ai traversé un burn-out. Je comprends ce que c\'est que d\'être dépassé par ce qui vous arrive — et de vouloir vous retrouver.',
   imageAlt = profileDefaults.imageAlt,
   imageSrc = profileDefaults.imageSrc,
 }: ProfileHeroProps) {
