@@ -1,7 +1,6 @@
 export type HomePainPoint = {
   title: string;
   text: string;
-  href: string;
 };
 
 export type HomeOutcome = {
@@ -12,32 +11,29 @@ export type HomeOutcome = {
 export const homePainPoints: HomePainPoint[] = [
   {
     title: 'Stress constant',
-    text: 'celui qui s\’installe lentement, jusqu\’à vous vider de votre énergie. Vous vous réveillez fatigué(e), vous vous couchez tendu(e), et entre les deux… vous tenez comme vous pouvez.',
-    href: '/accompagnements#stress-burnout',
+    text: 'celui qui s\’installe progressivement, et vous vide de votre énergie. Vous vous réveillez fatigué(e), vous vous couchez tendu(e), et entre les deux… vous tenez comme vous pouvez.',
   },
   {
     title: 'Stress post‑traumatique',
     text: 'celui qui revient par vagues, sans prévenir. Un bruit, une image, une situation… et votre corps réagit avant même que vous compreniez pourquoi.',
-    href: '/accompagnements#stress-post-traumatique',
   },
   {
     title: 'Stress lié à une phobie',
     text: 'celui qui vous bloque, vous paralyse, vous fait éviter, contourner, renoncer. Vous savez que la peur est disproportionnée, mais votre corps ne vous écoute pas.',
-    href: '/accompagnements#phobies',
   },
 ];
 
 export const homeOutcomes: HomeOutcome[] = [
   {
     title: 'Une méthode scientifique',
-    description: 'Chaque pratique est présentée avec les résultats d\'études scientifiques vérifiables, en toute transparence.',
+    description: 'L\'efficacité de l\'hypnose a été prouvée scientifiquement par plusieurs études.',
   },
   {
-    title: 'Un travail sur la cause',
-    description: 'Sans travail sur la cause, le mal risque de revenir.',
+    title: 'Une co-construction',
+    description: 'En tant que praticien, je vous accompagne par mes paroles à trouver, en vous, les ressources dont vous n\'aviez pas conscience. Vous êtes acteur/actrice du votre changement.',
   },
   {
-    title: 'Une méthode structurée dans le temps',
-    description: 'Entre 5 et 8 séances pour vous sentir mieux et avoir les clés pour continuer sainement.',
+    title: 'Une attitude bienveillante',
+    description: 'Avec douceur et respect, vous restez libre d\’accepter ou non chacune de mes suggestions. C\'est un accompagnement sans ordre à suivre, ni injonction, et adapté à vous.',
   },
 ];

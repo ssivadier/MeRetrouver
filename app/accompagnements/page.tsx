@@ -4,6 +4,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { ReconnectCTA } from '@/components/ui/ReconnectCTA';
 import { StructuredData } from '@/components/seo/JsonLd';
 import { ServiceSection } from '@/components/services/ServiceSection';
+import { SupportSection } from '@/components/services/SupportSection';
 import { services } from '@/content/services';
 import { createBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { createPageMetadata } from '@/lib/seo';
@@ -31,6 +32,9 @@ export default function AccompagnementsPage() {
         </Reveal>
       ))}
       <Reveal delay={100 + services.length * 100}>
+        <SupportSection />
+      </Reveal>
+      <Reveal delay={150 + services.length * 100}>
         <ReconnectCTA />
       </Reveal>
       <StructuredData data={createBreadcrumbSchema('/accompagnements')} />

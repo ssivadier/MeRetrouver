@@ -25,35 +25,27 @@ export default function HomePage() {
           <div className="space-y-6">
             <h1 className="sr-only">Hypnothérapie à Pessac — Accompagnement stress, burnout, phobies</h1>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
-              Le stress me bouffe la vie, et je ne sais plus comment m&apos;en sortir.
+              Vous voulez à nouveau vivre pleinement?
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Ce n&apos;est pas juste &quot;J&apos;ai du stress&quot; (<a href="https://fondation-ramsaysante.com/observatoire-stress" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-emerald underline underline-offset-2 transition hover:text-brand-deep">59% des Français sont en état de stress en 2025</a>). Et peu importe la porte d&apos;entrée : un <span className="highlight-gold">épuisement qui dure</span> et vous vide, une <span className="highlight-gold">peur qui vous bloque</span> et vous fait renoncer, ou des <span className="highlight-gold">souvenirs qui reviennent</span> sans prévenir... quelque chose a pris le contrôle de votre vie. Votre corps essaie de vous dire que ça ne va pas (votre cœur qui s&apos;emballe, votre sommeil instable, des reflux acides, des crises de panique,...) et votre humeur change malgré vos efforts (impatience, isolements, colères,...). Vous avez l&apos;impression que vous ne faites que <span className="highlight-gold">tenir le coup</span>, mais vous naviguez entre la culpabilité de ne pas réussir à aller mieux et le sentiment que chaque jour est un fardeau.
+              Vous n'êtes pas seul(e) à vous sentir stréssé(e). <a href="https://fondation-ramsaysante.com/observatoire-stress" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-emerald underline underline-offset-2 transition hover:text-brand-deep">59% des Français sont en état de stress en 2025</a>. Un chiffre en hausse constante.
               <br /><br />
-              Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, reprendre du plaisir à être avec vos enfants, votre conjoint(e) et vos amis, mais vous ne savez plus comment faire. Vous n&apos;êtes ni faible, ni seul(e) dans ce cas. Mais si vous ne traitez pas la cause, avec les bons outils, vous risquez de traîner cette souffrance pendant des années au lieu de profiter de l&apos;instant présent.
+              Ca peut être dû à un <span className="highlight-gold">épuisement qui dure</span> et vous vide, à une <span className="highlight-gold">peur qui vous bloque</span> et vous fait renoncer, ou à des <span className="highlight-gold">souvenirs qui reviennent</span> sans prévenir... 
+              <br /><br />
+              Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, et reprendre du plaisir à être avec vos enfants, votre conjoint(e) et vos amis. Mais si vous ne traitez pas la cause, avec les bons outils, vous risquez de traîner cette souffrance pendant des années au lieu de profiter de l&apos;instant présent.
             </p>
           </div>
 
           <div className="space-y-4">
             <p className="font-display text-2xl font-semibold text-brand-deep">
-              Vous vous reconnaissez ?
-            </p>
-            <p className="text-sm leading-6 text-brand-ink/60">
-              Trois situations fréquentes. Peu importe la vôtre : l&apos;objectif est le même — reprendre le contrôle de votre vie.
+              Pourquoi me faire confiance?
             </p>
             <div className="grid gap-4 md:grid-cols-3">
-              {homePainPoints.map((item, i) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className={`card-surface group flex flex-col gap-3 border-t-2 transition hover:-translate-y-0.5 hover:shadow-lg ${cardAccents[i]}`}
-                >
-                  <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
-                  <p className="text-base leading-7 text-brand-ink/80">{item.text}</p>
-                  <span className="mt-auto pt-2 text-sm font-semibold text-brand-emerald underline underline-offset-2 transition group-hover:text-brand-deep">
-                    En savoir plus sur cet accompagnement →
-                  </span>
-                </Link>
+              {homeOutcomes.map((item, i) => (                
+              <article key={item.title} className={`card-surface flex flex-col gap-3 border-t-2 ${cardAccents[i]}`}>
+                <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
+                <p className="text-base leading-7 text-brand-ink/80">{item.description}</p>
+              </article>
               ))}
             </div>
           </div>
@@ -71,26 +63,21 @@ export default function HomePage() {
         <section className="page-section flex flex-col gap-10">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
-              En quoi nous pouvons vous aider ?
-            </p>
-            <p className="font-display text-lg font-semibold text-brand-deep">
-              Vous ne cherchez pas seulement à &quot;moins stresser&quot;. Vous cherchez à <span className="highlight-gold">redevenir vous-même</span>. Voici comment je vous y accompagne.
+              En quoi puis-je vous aider ?
             </p>
             <p className="text-base leading-7 text-brand-ink/80">
-              Notre approche en hypnothérapie à Pessac n&apos;est pas sur les symptômes, mais sur <span className="highlight-gold">la cause du stress</span>.
+              La cause de votre stress peut revêtir plusieurs formes, mais sa conséquence est un déséquilibre entre le système sympathique et parasympathique qui induit une réaction forte. C&apos;est utile et naturel lorsque le danger est réel (un tigre en face de vous par exemple), cela vous protège. Mais dans nos vies sur-stimulées, ou suite à un traumatisme, ce déséquilibre tend à ne pas revenir à la normale.
               <br /><br />
-              La cause de ce stress peut revêtir plusieurs formes, mais sa conséquence est un déséquilibre entre le système sympathique et parasympathique qui induit une réaction forte. C&apos;est utile et naturel. Lorsque le danger est réel (un tigre en face de vous par exemple), cela vous protège. Mais dans nos vies sur-stimulées, ou suite à un traumatisme, ce déséquilibre tend à ne pas revenir à la normale.
-              <br /><br />
-              Par ailleurs, nous n&apos;utilisons que des pratiques pour lesquelles il y a eu des études scientifiques et dont <span className="highlight-gold">l&apos;efficacité a été démontrée</span>. Pas d&apos;ésotérisme, uniquement des pratiques qui ont fait leurs preuves, et qui sont adaptées à votre situation.
+              Mon approche en hypnothérapie vous aide à rééquilibrer naturellement votre système nerveux et vise à vous aider à identifier les ressources dont vous disposez déjà, mais dont vous n'avez pas conscience, pour pouvoir vous remettre en action.
             </p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {homeOutcomes.map((item, i) => (
-              <article key={item.title} className={`card-surface flex flex-col gap-3 border-t-2 ${cardAccents[i]}`}>
-                <h3 className="font-display text-xl font-semibold text-brand-deep">{item.title}</h3>
-                <p className="text-base leading-7 text-brand-ink/80">{item.description}</p>
-              </article>
-            ))}
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-emerald">
+              Quelques craintes courantes concernant l'hypnose
+            </p>
+            <ul className="list-inside list-disc space-y-2 text-base leading-7 text-brand-ink/80">
+              <li>Vous ne <span className="highlight-gold">perdez pas le contrôle</span>, vous restez conscient(e) à chaque étape. C'est d'ailleurs essentiel puisque votre rôle dans l'hypnose thérapeutique sera actif. C'est vous qui chercherez en vous-même les ressources cachées dont vous disposez. </li>
+              <li>Vous n'êtes <span className="highlight-gold">pas endormi(e)</span>, vous êtes dans un état de conscience modifié, très focalisé en vous, comme lorsque vous êtes plongé(e) dans un livre et que vous n'entendez pas qu'on vous appelle.</li>
+              <li>Vous n'êtes <span className="highlight-gold">pas manipulé(e)</span>, vous restez maître de vos décisions. Je vous inviterai, par mes paroles, par l'histoire que je raconte, mais vous serez toujours libre d'accepter ou non chaque suggestion que je ferai.</li>
+            </ul>
           </div>
         </section>
       </Reveal>
