@@ -32,7 +32,7 @@ export default function HomePage() {
               <br /><br />
               Ca peut être dû à un <span className="highlight-gold">épuisement qui dure</span> et vous vide, à une <span className="highlight-gold">peur qui vous bloque</span> et vous fait renoncer, ou à des <span className="highlight-gold">souvenirs qui reviennent</span> sans prévenir... 
               <br /><br />
-              Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, et reprendre du plaisir à être avec vos enfants, votre conjoint(e) et vos amis. Mais si vous ne traitez pas la cause, avec les bons outils, vous risquez de traîner cette souffrance pendant des années au lieu de profiter de l&apos;instant présent.
+              Vous voulez redevenir comme avant, <span className="highlight-gold">vous retrouver</span>, et pouvoir profiter à nouveau de l'instant présent ? Mon objectif est de vous y aider.
             </p>
           </div>
 

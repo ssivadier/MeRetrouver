@@ -30,10 +30,10 @@ export const homeOutcomes: HomeOutcome[] = [
   },
   {
     title: 'Une co-construction',
-    description: 'En tant que praticien, je vous accompagne par mes paroles à trouver, en vous, les ressources dont vous n\'aviez pas conscience. Vous êtes acteur/actrice du votre changement.',
+    description: 'En tant que praticien, je vous accompagne par mes paroles à trouver, en vous, les ressources dont vous n\'aviez pas conscience. Vous êtes acteur/actrice de votre changement.',
   },
   {
     title: 'Une attitude bienveillante',
-    description: 'Avec douceur et respect, vous restez libre d\’accepter ou non chacune de mes suggestions. C\'est un accompagnement sans ordre à suivre, ni injonction, et adapté à vous.',
+    description: 'Avec douceur et respect, vous restez libre d\’accepter ou non chacune de mes suggestions. C\'est un accompagnement adapté à vous.',
   },
 ];
